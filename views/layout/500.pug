@@ -1,0 +1,26 @@
+extends ../layout/base.pug
+
+block content 
+    div.content-header
+        .container-fluid
+            .row.mb-2
+                .col-sm-6
+                    h1 500 Error Page
+                .col-sm-6
+                    ol.breadcrumb.float-sm-right
+                        li.breadcrumb-item
+                            a(href='#') Home
+                        li.breadcrumb-item.active 500 Error Page
+
+    section.content
+        .error-page
+            h2.headline.text-danger 500
+            .error-content
+                h3
+                    i.fas.fa-exclamation-triangle.text-danger
+                    |  Oops! Something went wrong.
+                p
+                    | We will work on fixing that right away.
+                    | Meanwhile, you may 
+                    a(href='/') return to dashboard.
+                

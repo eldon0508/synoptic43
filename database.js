@@ -2,7 +2,7 @@ const mysql = require('mysql');
 
 var connection = mysql.createConnection({
     host: 'localhost',
-    database: 'pos',
+    database: 'synoptic',
     user: 'root',
     password: '',
     multipleStatements: true,
