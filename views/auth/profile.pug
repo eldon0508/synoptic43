@@ -52,15 +52,6 @@ block content
                                             label Last Name
                                             input.form-control#last_name(value=result.last_name name='last_name' placeholder='Enter Last Name' required)
                                 div.row
-                                    div.col-6
-                                        div.form-group
-                                            label Address
-                                            input.form-control#address(value=result.address name='address' placeholder='Enter Address' required)
-                                    div.col-6
-                                        div.form-group
-                                            label Date of Birth
-                                            input.form-control#dob(value=result.dob.toISOString().split('T')[0] type='date' max=new Date().toISOString().split('T')[0] name='dob' placeholder='Enter Date of Birth' required)
-                                div.row
                                     div.col-12.text-right
                                         a(href="/").mr-2
                                             button.btn.btn-secondary(type='button') Back

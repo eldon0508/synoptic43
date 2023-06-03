@@ -1,5 +1,14 @@
-extends layout
-
+extends layout/base 
 block content
-  h1= title
-  p Welcome to #{title}
+
+	div.content-header
+		div.container-fluid
+			div.row.mb-2
+				div.col-sm-6
+					h1.m-0 
+						| Dashboard
+
+	section.content
+		div.container-fluid
+			div.row
+				div.col-12

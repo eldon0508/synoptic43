@@ -11,7 +11,9 @@ const path = require('path'),
 // Routes declaration
 var indexRouter = require('./routes/index'),
   newsCategoryRouter = require('./routes/newCategory'),
-  newsRouter = require('./routes/news');
+  newsRouter = require('./routes/news'),
+  charityRouter = require('./routes/charity'),
+  communityRouter = require('./routes/community');
 
 const app = express();
 
@@ -58,8 +60,10 @@ app.use(fileUpload());
 
 // Routes
 app.use('/', indexRouter);
-app.use('/news_category', [isAuth, isAdmin], newsCategoryRouter);
+app.use('/newsCategory', [isAuth, isAdmin], newsCategoryRouter);
 app.use('/news', [isAuth, isAdmin], newsRouter);
+app.use('/charity', [isAuth, isAdmin], charityRouter);
+app.use('/community', [isAuth, isAdmin], communityRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

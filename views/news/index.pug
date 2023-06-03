@@ -1,0 +1,69 @@
+extends ../layout/base-datatables.pug
+
+block content 
+    div.content-header
+        .container-fluid
+            .row.mb-2
+                .col-sm-6
+                    h1 #{title}
+                .col-sm-6
+                    ol.breadcrumb.float-sm-right
+                        li.breadcrumb-item
+                            a(href='/transaction/index') Home
+                        li.breadcrumb-item.active #{title}
+
+    section.content 
+        .container-fluid
+            div.row
+                div.col-12
+                    div.card
+                        div.card-header
+                            a(href='/news/create').btn.btn-primary.float-right
+                                i.fa.fa-plus 
+                                |  Create News
+                        div.card-body
+                            div.row
+                                div.col-12
+                                    table#table.table.table-hover.dataTable.dtr-inline(role="grid")
+                                        thead
+                                            tr
+                                                th ID
+                                                th Title
+                                                th Category
+                                                th Action
+                                        tbody 
+                                            each result, index in results
+                                                tr
+                                                    td #{index + 1}
+                                                    td #{result.title}
+                                                    td 
+                                                        a(href="/newsCategory/" + result.category_id + "/edit")
+                                                            | #{result.category_name}
+                                                    td
+                                                        div(style='display:inline-block')
+                                                            a(href='/news/' + result.id + '/edit').btn.btn-sm.btn-primary.mx-2
+                                                                i.fa.fa-edit
+                                                        div(style='display:inline-block')
+                                                            form(method='post' action='/news/' + result.id + '/destroy')
+                                                                input(type="hidden" name="_method" value="DELETE")
+                                                                button.btn.btn-sm.btn-danger.js-show-confirmation-modal(type='submit')
+                                                                    i.fas.fa-trash-alt
+                            div.row
+                                div.col-12.col-md-6
+                                    div#table_info.dataTables_info(role="status")
+                                        //- Total entries and pagination text added by JS
+        .modal.confirmation-modal.fade
+            .modal-dialog
+                .modal-content
+                    .modal-header
+                        h5.modal-title
+                            | Delete News
+                        button.close(type="button" data-dismiss="modal" arial-label="Close")
+                            span(aria-hidden="true") &times;
+                    .modal-body 
+                        p Are you sure?
+                    .modal-footer 
+                        button.btn.btn-secondary.js-cancel(data-dismiss="modal")
+                            | Cancel
+                        button.btn.btn-danger.js-confirm
+                            | Continue

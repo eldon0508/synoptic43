@@ -1,0 +1,46 @@
+extends ../layout/base
+
+block content
+    div.content-header
+        .container-fluid
+            .row.mb-2
+                .col-sm-6
+                    h1 #{title}
+                .col-sm-6
+                    ol.breadcrumb.float-sm-right
+                        li.breadcrumb-item
+                            a(href='/transaction/index') Home
+                        li.breadcrumb-item
+                            a(href='/newsCategory/index') News Category
+                        li.breadcrumb-item.active Create
+
+    section.content
+        div.container-fluid
+            div.row
+                div.col-12
+                    div.card
+                        div.card-body
+                            form(action="/newsCategory/store" method="post")
+                                input(type="hidden" name="_csrf" value=_csrf)
+                                div.row
+                                    div.col-6
+                                        div.form-group
+                                            label(for="name") Name
+                                            input.form-control#name(name='name' placeholder='Enter Name' required)
+                                    div.col-6
+                                        div.form-group
+                                            label(for="status") Status
+                                            select.form-control#status(name="status" required)
+                                                option(value="") --- Select Status ---
+                                                option(value=1) Active
+                                                option(value=0) Inactive
+                                div.row
+                                    div.col-12
+                                        div.form-group
+                                            label(for="description") Description
+                                            textarea.form-control#description(name="description")
+                                div.row
+                                    div.col-12.text-right
+                                        a(href="/newsCategory/index").mr-2
+                                            button.btn.btn-secondary(type='button') Back
+                                        button.btn.btn-success(type='submit') Submit

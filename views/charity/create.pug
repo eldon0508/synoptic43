@@ -1,0 +1,62 @@
+extends ../layout/base
+
+block content
+    div.content-header
+        .container-fluid
+            .row.mb-2
+                .col-sm-6
+                    h1 #{title}
+                .col-sm-6
+                    ol.breadcrumb.float-sm-right
+                        li.breadcrumb-item
+                            a(href='/transaction/index') Home
+                        li.breadcrumb-item
+                            a(href='/charity/index') Charity
+                        li.breadcrumb-item.active Create
+
+    section.content
+        div.container-fluid
+            div.row
+                div.col-12
+                    div.card
+                        div.card-body
+                            form(action="/charity/store" method="post")
+                                input(type="hidden" name="_csrf" value=_csrf)
+                                div.row
+                                    div.col-6
+                                        div.form-group
+                                            label(for="name") Name
+                                            input.form-control#name(name='name' placeholder='Enter Name' required)
+                                    div.col-6
+                                        div.form-group
+                                            label(for="status") Status
+                                            select.form-control#status(name="status" required)
+                                                option(value="") --- Select Status ---
+                                                option(value=1) Active
+                                                option(value=0) Inactive
+                                div.row
+                                    div.col-6
+                                        div.form-group
+                                            label(for="official_url") Official URL
+                                            input.form-control#official_url(type="url" name='official_url' placeholder='https://example.com' required)
+                                    div.col-6
+                                        div.form-group
+                                            label(for="google_map_url") Google Map URL
+                                            input.form-control#google_map_url(type="url" name='google_map_url' placeholder='https://example.com' required)
+                                div.row    
+                                    div.col-6
+                                        div.form-group
+                                            label(for="address") Address
+                                            input.form-control#address(name='address' placeholder='Enter Address' required)
+                                    div.col-6
+                                        div.form-group
+                                            label(for='image') Image
+                                            .input-group
+                                                .custom-file
+                                                    input#image.custom-file-input(type='file' name="image" required)
+                                                    label.custom-file-label(for='image') Choose file
+                                div.row
+                                    div.col-12.text-right
+                                        a(href="/charity/index").mr-2
+                                            button.btn.btn-secondary(type='button') Back
+                                        button.btn.btn-success(type='submit') Submit

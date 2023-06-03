@@ -1,0 +1,55 @@
+extends ../layout/base
+
+block content
+    div.content-header
+        .container-fluid
+            .row.mb-2
+                .col-sm-6
+                    h1 #{title}
+                .col-sm-6
+                    ol.breadcrumb.float-sm-right
+                        li.breadcrumb-item
+                            a(href='/transaction/index') Home
+                        li.breadcrumb-item
+                            a(href='/news/index') News
+                        li.breadcrumb-item.active Edit
+
+    section.content
+        div.container-fluid
+            div.row
+                div.col-12
+                    div.card
+                        div.card-body
+                            form(method="post" action="/news/" + result.id + "/update")
+                                input(type="hidden" name="_csrf" value=_csrf)
+                                div.row
+                                    div.col-6
+                                        div.form-group
+                                            label(for="title") Title
+                                            input.form-control#title(name='title' placeholder='Enter Title' required value=result.title)
+                                    div.col-6
+                                        div.form-group
+                                            label(for="subtitle") Subtitle
+                                            input.form-control#subtitle(name='subtitle' placeholder='Enter Subtitle' required value=result.subtitle)
+                                div.row
+                                    div.col-6
+                                        div.form-group
+                                            label(for="news_category_id") Category
+                                            select.form-control#news_category_id(name="news_category_id" required)
+                                                option(value="") --- Select Category ---
+                                                each category in categories
+                                                    option(value=category.id selected=(result.news_category_id == category.id)) #{category.name}
+                                    div.col-6
+                                        div.form-group
+                                            label(for="url") URL
+                                            input.form-control#url(type="url" name='url' placeholder='https://example.com' required value=result.url)
+                                div.row
+                                    div.col-12
+                                        div.form-group
+                                            label(for="description") Description
+                                            textarea.form-control#description(name="description") #{result.description}
+                                div.row
+                                    div.col-12.text-right
+                                        a(href="/news/index").mr-2
+                                            button.btn.btn-secondary(type='button') Back
+                                        button.btn.btn-success(type='submit') Submit

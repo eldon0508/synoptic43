@@ -1,0 +1,73 @@
+extends ../layout/base-datatables.pug
+
+block content 
+    div.content-header
+        .container-fluid
+            .row.mb-2
+                .col-sm-6
+                    h1 #{title}
+                .col-sm-6
+                    ol.breadcrumb.float-sm-right
+                        li.breadcrumb-item
+                            a(href='/transaction/index') Home
+                        li.breadcrumb-item.active #{title}
+
+    section.content 
+        .container-fluid
+            div.row
+                div.col-12
+                    div.card
+                        div.card-header
+                            a(href='/community/create').btn.btn-primary.float-right
+                                i.fa.fa-plus 
+                                |  Create Community
+                        div.card-body
+                            div.row
+                                div.col-12
+                                    table#table.table.table-hover.dataTable.dtr-inline(role="grid")
+                                        thead
+                                            tr
+                                                th ID
+                                                th Name
+                                                th Description
+                                                th Status
+                                                th Action
+                                        tbody 
+                                            each result, index in results
+                                                tr
+                                                    td #{index + 1}
+                                                    td #{result.name}
+                                                    td #{result.description}
+                                                    td
+                                                        if result.status == 1
+                                                            | Active 
+                                                        else 
+                                                            | Inactive
+                                                    td
+                                                        div(style='display:inline-block')
+                                                            a(href='/community/' + result.id + '/edit').btn.btn-sm.btn-primary.mx-2
+                                                                i.fa.fa-edit
+                                                        div(style='display:inline-block')
+                                                            form(method='post' action='/community/' + result.id + '/destroy')
+                                                                input(type="hidden" name="_method" value="DELETE")
+                                                                button.btn.btn-sm.btn-danger.js-show-confirmation-modal(type='submit')
+                                                                    i.fas.fa-trash-alt
+                            div.row
+                                div.col-12.col-md-6
+                                    div#table_info.dataTables_info(role="status")
+                                        //- Total entries and pagination text added by JS
+        .modal.confirmation-modal.fade
+            .modal-dialog
+                .modal-content
+                    .modal-header
+                        h5.modal-title
+                            | Delete Charity
+                        button.close(type="button" data-dismiss="modal" arial-label="Close")
+                            span(aria-hidden="true") &times;
+                    .modal-body 
+                        p Are you sure?
+                    .modal-footer 
+                        button.btn.btn-secondary.js-cancel(data-dismiss="modal")
+                            | Cancel
+                        button.btn.btn-danger.js-confirm
+                            | Continue

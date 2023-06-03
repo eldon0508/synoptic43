@@ -15,23 +15,27 @@ aside.main-sidebar.sidebar-dark-indigo.elevation-4
 				if(req.user.role == "admin")
 					li.nav-item
 						a.nav-link(href="#")
-							i.nav-icon.fab.fa-adversal
+							i.nav-icon.far.fa-newspaper
 							p News
 							i.fas.fa-angle-left.right
 						ul.nav.nav-treeview
 							li.nav-item 
-								a.nav-link(href="/news_category/index")
-									i.nav-icon.fas.fa-list
-									p News Category
+								a.nav-link(href="/newsCategory/index")
+									i.nav-icon.fas.fa-stream
+									p Category
 							li.nav-item 
-								a.nav-link(href="/news_category/index")
+								a.nav-link(href="/news/index")
 									i.nav-icon.fas.fa-list
 									p List
 					li.nav-item
-						a.nav-link(href="/category/index")
-							i.nav-icon.fas.fa-list
-							p Category
-					
+						a.nav-link(href="/charity/index")
+							i.nav-icon.fas.fa-hand-holding-heart
+							p Charity
+					li.nav-item
+						a.nav-link(href="/community/index")
+							i.nav-icon.fas.fa-church
+							p Community
+
 				else
 					//- li.nav-item
 					//- 	a.nav-link(href="#")
