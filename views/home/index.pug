@@ -1,0 +1,631 @@
+doctype html
+head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible' content='IE=edge')
+    meta(name='viewport' content='width=device-width, initial-scale=1')
+    // ===============================================
+    // Document Title
+    // ===============================================
+    title Govan, Glasgow | Government Template
+    // ===============================================
+    // Favicons
+    // ===============================================
+    link(rel='apple-touch-icon' sizes='180x180' href='/assets/img/favicons/apple-touch-icon.png')
+    link(rel='icon' type='image/png' sizes='32x32' href='/assets/img/favicons/favicon-32x32.png')
+    link(rel='icon' type='image/png' sizes='16x16' href='/assets/img/favicons/favicon-16x16.png')
+    link(rel='shortcut icon' type='image/x-icon' href='/assets/img/favicons/favicon.ico')
+    link(rel='manifest' href='/assets/img/favicons/manifest.json')
+    meta(name='msapplication-TileImage' content='/assets/img/favicons/mstile-150x150.png')
+    meta(name='theme-color' content='#ffffff')
+    // ===============================================
+    // Stylesheets
+    // ===============================================
+    link(rel='preconnect' href='https://fonts.gstatic.com')
+    link(rel='preconnect' href='https://fonts.googleapis.com')
+    link(rel='preconnect' href='https://fonts.gstatic.com' crossorigin='')
+    link(href='https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800&display=swap' rel='stylesheet')
+    link(href='/vendors/prism/prism.css' rel='stylesheet')
+    link(href='/assets/css/theme.css' rel='stylesheet')
+    link(href='/assets/css/user.css' rel='stylesheet')
+    link(href='/vendors/swiper/swiper-bundle.min.css' rel='stylesheet')
+// ===============================================
+// Main Content
+// ===============================================
+main
+    section.py-3(style='background-color:#10203F;')
+        #topNav.container
+            .row.justify-content-between
+                .col-auto
+                    a.navbar-brand(href='index.html')
+                        img(src='/assets/img/logos/logo.png' width='141' alt='logo')
+                .col-auto.order-2.d-none.d-sm-block
+                    a.nav-link(href='#!')
+                        i.fas.fa-user.text-info.me-2
+                .col-auto.d-none.d-lg-block
+                    .d-flex.align-items-center
+                        p.mb-0.me-3.text-primary.text-end.fw-bolder.lh-1.opacity-50
+                            | SEARCH 
+                            br
+                            | ANYTHING
+                        form
+                            .input-group.d-flex.flex-end-center
+                                input#formGroupExampleInput.form-control.form-eduprixsearch-control.rounded-pill(type='text' placeholder='Ex: Modern Art')
+                                img.input-box-icon(src='/assets/img/illustrations/search.png' width='36' alt='')
+    .py-7.py-sm-8.py-lg-10.py-xxl-9.py-xxl-11(style='background-color:#10203F;')
+    section.mb-n9.mb-lg-n11.p-0(style='transform: translateY(calc(-50% - 25px));')
+        .container-fluid
+            #heroCarouselContainer.position-relative.hero-carousel-container
+                .position-absolute.translate-middle.d-none.d-xxl-block
+                    img(src='/assets/img/illustrations/bg-circle.png' alt='')
+                .position-absolute.top-0.d-none.d-lg-block(style='right: -16px;')
+                    #heroSlidercounterContainer.bg-carousel-soft-primary.position-relative
+                        #heroSlidercounter.hero-slider-counter  01 
+                #hero-carousel.carousel.slide(data-bs-ride='carousel')
+                    .slider-rectangle.z-index-2.d-none.d-xxl-block
+                        img(src='/assets/img/gallery/rectangle-s.png' alt='')
+                    .position-relative
+                        .hero-social-icons.d-none.d-lg-block
+                            ul.list-unstyled.list-inline
+                                li.list-inline-item.mr-2
+                                    a.text-decoration-none(href='#!')
+                                        img.list-social-icon(src='/assets/img/icons/instagram.png' width='30' alt='...')
+                                li.list-inline-item.mr-2
+                                    a.text-decoration-none(href='#!')
+                                        img.list-social-icon(src='/assets/img/icons/facebook.png' width='30' alt='...')
+                                li.list-inline-item.mr-2
+                                    a.text-decoration-none(href='#!')
+                                        img.list-social-icon(src='/assets/img/icons/twitter.png' width='30' alt='...')
+                        #heroCarouselInner.carousel-inner
+                            .carousel-item.active
+                                img.d-block.w-100(src='/assets/img/gallery/header-slider-1.png' height='447' alt='...')
+                                .carousel-caption.d-none.d-sm-block
+                                    h1.display-4.text-light.text-start.fw-light.fs-2.fs-md-3.fs-lg-4.fs-xl-5
+                                        | We 
+                                        strong empower 
+                                        | you 
+                                        br
+                                        | to learn what you love.
+                            .carousel-item
+                                img.d-block.w-100(src='/assets/img/gallery/header-slider-2.png' height='447' alt='...')
+                                .carousel-caption.d-none.d-sm-block
+                                    h1.display-4.text-light.text-start.fw-light
+                                        strong An extensive Archieve for you to 
+                                        br.d-none.d-xxl-block
+                                        | explore the many areas of knowledge.
+                            .carousel-item
+                                img.d-block.w-100(src='/assets/img/gallery/header-slider-3.png' height='447' alt='...')
+                                .carousel-caption.d-none.d-sm-block
+                                    h1.display-4.text-light.text-start.fw-light
+                                        | Learn how to
+                                        strong  express yourself 
+                                        br
+                                        | artistically via engaging courses.
+                    .row.g-0
+                        .col-3.position-relative
+                            .carousel-indicators.justify-content-start.custom-indicators
+                                button.active(type='button' data-bs-target='#hero-carousel' data-bs-slide-to='0' aria-current='true' aria-label='Slide 1')
+                                button(type='button' data-bs-target='#hero-carousel' data-bs-slide-to='1' aria-label='Slide 2')
+                                button(type='button' data-bs-target='#hero-carousel' data-bs-slide-to='2' aria-label='Slide 3')  
+                        .col-9.position-relative
+                            .card(style='background-color:#2257BF;')
+                                .card-body.border-bottom.border-primary.p-2.px-md-4.py-md-3.py-xl-4.p-sm-3
+                                    .d-md-flex.flex-between-center
+                                        p.mb-0.text-primary.fs-2
+                                            strong 250,998 
+                                            | people are learning with us
+                                        a.text-decoration-none.text-light.fw-bold(href='#!' role='button')
+                                            | LEARN MORE
+                                            svg.bi.bi-arrow-right.text-primary.ms-2(xmlns='http://www.w3.org/2000/svg' width='32' height='32' fill='currentColor' viewbox='0 0 16 16')
+                                                path(fill-rule='evenodd' d='M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z')
+    // ============================================
+    // <section> begin ============================
+    section.py-6
+        .container
+            .row
+                h1.header-title.display-4.header.text-start.mb-5  TOP COURSES
+                each course in courses
+                    .col-sm-6.col-lg-3.mb-4
+                        .card.border-0.h-100
+                            .position-relative
+                                img.w-100(src=course.image alt='courses')
+                                .course-logo
+                                    img(src=course.organiser_image alt='logo')
+                                .ps-6
+                                    span.badge.bg-primary.rounded-0(style='padding: 11.1px 21px') Free
+                            .card-body.px-0.py-3
+                                h5.mb-0.font-sans-serif.fw-bold.fs-md-0.fs-lg-1 #{course.title}
+                                a.text-muted.fs--1.stretched-link.text-decoration-none(href=course.url target="_blank") #{course.organiser}
+        // end of .container
+        // <section> close ============================
+        // ============================================
+        // ============================================
+        // <section> begin ============================
+        section.bg-secondary
+            .container
+                .row.g-3
+                    h1.header-title-explore.display-4.header.text-start.mb-5  EXPLORE EDUPRIX
+                    .col-sm-6.col-lg-3
+                        .card.card-hover.h-100
+                            .card-body.d-flex.align-items-center.px-4.px-lg-2.px-xl-4
+                                .d-flex.align-items-center
+                                    .icon-box
+                                        img.eduprix-icon(src='/assets/img/icons/data-science.png' alt='explore')
+                                        img.eduprix-icon-hover(src='/assets/img/icons/data-science.svg' alt='explore')
+                                    .flex-grow-1.ms-3
+                                        h4.fs-lg-1.text-light.mb-0 Data Science
+                                        a.stretched-link.explore-link(href='#!') 78 Courses
+                    .col-sm-6.col-lg-3
+                        .card.card-hover.h-100
+                            .card-body.d-flex.align-items-center.px-4.px-lg-2.px-xl-4
+                                .d-flex.align-items-center
+                                    .icon-box
+                                        img.eduprix-icon(src='/assets/img/icons/business.png' alt='explore')
+                                        img.eduprix-icon-hover(src='/assets/img/icons/business.svg' alt='explore')
+                                    .flex-grow-1.ms-3
+                                        h4.fs-lg-1.text-light.mb-0 Business &amp; Management
+                                        a.stretched-link.explore-link(href='#!') 67 Courses
+                    .col-sm-6.col-lg-3
+                        .card.card-hover.h-100
+                            .card-body.d-flex.align-items-center.px-4.px-lg-2.px-xl-4
+                                .d-flex.align-items-center
+                                    .icon-box
+                                        img.eduprix-icon(src='/assets/img/icons/language.png' alt='explore')
+                                        img.eduprix-icon-hover(src='/assets/img/icons/language.svg' alt='explore')
+                                    .flex-grow-1.ms-3
+                                        h4.fs-lg-1.text-light.mb-0 Language
+                                        a.stretched-link.explore-link(href='#!') 85 Courses
+                    .col-sm-6.col-lg-3
+                        .card.card-hover.h-100
+                            .card-body.d-flex.align-items-center.px-4.px-lg-2.px-xl-4
+                                .d-flex.align-items-center
+                                    .icon-box
+                                        img.eduprix-icon(src='/assets/img/icons/information.png' alt='explore')
+                                        img.eduprix-icon-hover(src='/assets/img/icons/information.svg' alt='explore')
+                                    .flex-grow-1.ms-3
+                                        h4.fs-lg-1.text-light.mb-0 Information Technology
+                                        a.stretched-link.explore-link(href='#!') 98 Courses
+                    .col-sm-6.col-lg-3
+                        .card.card-hover.h-100
+                            .card-body.d-flex.align-items-center.px-4.px-lg-2.px-xl-4
+                                .d-flex.align-items-center
+                                    .icon-box
+                                        img.eduprix-icon(src='/assets/img/icons/film.png' alt='explore')
+                                        img.eduprix-icon-hover(src='/assets/img/icons/film.svg' alt='explore')
+                                    .flex-grow-1.ms-3
+                                        h4.fs-lg-1.text-light.mb-0 Modernism in Oriental Art
+                                        a.stretched-link.explore-link(href='#!') 68 Courses
+                    .col-sm-6.col-lg-3
+                        .card.card-hover.h-100
+                            .card-body.d-flex.align-items-center.px-4.px-lg-2.px-xl-4
+                                .d-flex.align-items-center
+                                    .icon-box
+                                        img.eduprix-icon(src='/assets/img/icons/math.png' alt='explore')
+                                        img.eduprix-icon-hover(src='/assets/img/icons/math.svg' alt='explore')
+                                    .flex-grow-1.ms-3
+                                        h4.fs-lg-1.text-light.mb-0 Compositions in Visual Art
+                                        a.stretched-link.explore-link(href='#!') 878 Courses
+                    .col-sm-6.col-lg-3
+                        .card.card-hover.h-100
+                            .card-body.d-flex.align-items-center.px-4.px-lg-2.px-xl-4
+                                .d-flex.align-items-center
+                                    .icon-box
+                                        img.eduprix-icon(src='/assets/img/icons/health.png' alt='explore')
+                                        img.eduprix-icon-hover(src='/assets/img/icons/health.svg' alt='explore')
+                                    .flex-grow-1.ms-3
+                                        h4.fs-lg-1.text-light.mb-0 Health &amp; Medical
+                                        a.stretched-link.explore-link(href='#!') 79 Courses
+                    .col-sm-6.col-lg-3
+                        .card.card-hover.h-100
+                            .card-body.d-flex.align-items-center.px-4.px-lg-2.px-xl-4
+                                .d-flex.align-items-center
+                                    .icon-box
+                                        img.eduprix-icon(src='/assets/img/icons/design.png' alt='explore')
+                                        img.eduprix-icon-hover(src='/assets/img/icons/design.svg' alt='explore')
+                                    .flex-grow-1.ms-3
+                                        h4.fs-lg-1.text-light.mb-0 Design &amp; Creative
+                                        a.stretched-link.explore-link(href='#!') 37 Courses
+            // end of .container
+            // <section> close ============================
+            // ============================================
+            section#testimonial
+                .container
+                    .row.justify-content-end
+                        .col-2.position-xl-relative
+                            button.carousel-control-prev(type='button' data-bs-target='#carouselStudentReview' data-bs-slide='prev')
+                                span.carousel-control-prev-icon(aria-hidden='true')
+                                span.visually-hidden Previous
+                            button.carousel-control-next(type='button' data-bs-target='#carouselStudentReview' data-bs-slide='next')
+                                span.carousel-control-next-icon(aria-hidden='true')
+                                span.visually-hidden Next
+                    h1.header-title.display-4.header.text-start.mb-5  STUDENT REVIEW
+                    .row.flex-center.h-100
+                        #carouselStudentReview.carousel.slide(data-bs-ride='carousel')
+                            .carousel-inner.ps-4
+                                .carousel-item.active
+                                    .row.h-100.align-items-center
+                                        .col-auto.p-0
+                                            .card.border-0.h-100
+                                                .card-body.h-100.p-0.pe-4
+                                                    .d-flex.align-items-start
+                                                        img(src='/assets/img/gallery/rectangle.png' alt='rectangle')
+                                                        img(src='/assets/img/gallery/student-review.png' alt='testimonials' width='315')
+                                        .col-md-5.col-lg-6.col-xl-7.mb-4
+                                            .bg-holder.z-index--1(style='background-image:url(/assets/img/gallery/quotation.png);background-position:top center;background-size:auto;')
+                                            // /.bg-holder
+                                            h1.fw-normal.lh-1.mt-4.mt-lg-0
+                                                | Emillie 
+                                                br
+                                                |  Jonas
+                                            h4.fw-light England
+                                            p.mt-4.pe-xxl-8
+                                                | Eduprix is an ideal location for anybody who wants to learn something new or share what they know with others.&nbsp;&nbsp;Eduprix is a worldwide platform for online learning that helps to connect with one another via knowledge. It comes highly recommended from my side.
+                                .carousel-item
+                                    .row.h-100.align-items-center
+                                        .col-auto.p-0
+                                            .card.border-0.h-100
+                                                .card-body.h-100.p-0.pe-4
+                                                    .d-flex.align-items-start
+                                                        img(src='/assets/img/gallery/rectangle.png' alt='rectangle')
+                                                        img(src='/assets/img/gallery/student-review.png' alt='testimonials' width='315')
+                                        .col-md-5.col-lg-6.col-xl-7.mb-4
+                                            .bg-holder.z-index--1(style='background-image:url(/assets/img/gallery/quotation.png);background-position:top center;background-size:auto;')
+                                            // /.bg-holder
+                                            h1.fw-normal.lh-1.mt-4.mt-lg-0
+                                                | Ainara 
+                                                br
+                                                |  Vergara
+                                            h4.fw-light USA
+                                            p.mt-4.pe-xxl-8
+                                                | Eduprix is an ideal location for anybody who wants to learn something new or share what they know with others.&nbsp;&nbsp;Eduprix is a worldwide platform for online learning that helps to connect with one another via knowledge. It comes highly recommended from my side.
+                                .carousel-item
+                                    .row.h-100.align-items-center
+                                        .col-auto.p-0
+                                            .card.border-0.h-100
+                                                .card-body.h-100.p-0.pe-4
+                                                    .d-flex.align-items-start
+                                                        img(src='/assets/img/gallery/rectangle.png' alt='rectangle')
+                                                        img(src='/assets/img/gallery/student-review.png' alt='testimonials' width='315')
+                                        .col-md-5.col-lg-6.col-xl-7.mb-4
+                                            .bg-holder.z-index--1(style='background-image:url(/assets/img/gallery/quotation.png);background-position:top center;background-size:auto;')
+                                            // /.bg-holder
+                                            h1.fw-normal.lh-1.mt-4.mt-lg-0
+                                                | Niek 
+                                                br
+                                                |  Bove
+                                            h4.fw-light Bangladesh
+                                            p.mt-4.pe-xxl-8
+                                                | Eduprix is an ideal location for anybody who wants to learn something new or share what they know with others.&nbsp;&nbsp;Eduprix is a worldwide platform for online learning that helps to connect with one another via knowledge. It comes highly recommended from my side.
+                            .row.justify-content-end
+                                .col-auto
+                                    .carousel-indicators.position-relative
+                                        button.active(type='button' data-bs-target='#carouselStudentReview' data-bs-slide-to='0' aria-current='true' aria-label='Slide 1')
+                                        button(type='button' data-bs-target='#carouselStudentReview' data-bs-slide-to='1' aria-label='Slide 2')
+                                        button(type='button' data-bs-target='#carouselStudentReview' data-bs-slide-to='2' aria-label='Slide 3')
+            // ============================================
+            // <section> begin ============================
+            section.bg-soft-primary
+                .container
+                    .row.flex-center
+                        .col-12.col-md-6.col-lg-3.text-center.mb-5.mb-lg-0
+                            img.mb-5(src='/assets/img/illustrations/top-course.png' height='140' alt='rectangle')
+                            h1.text-secondary 1257
+                            h1.fw-normal.text-secondary
+                                | Top 
+                                br
+                                |  Courses
+                            p
+                                | Take courses from the world&rsquo;s best 
+                                br
+                                |  instructors and universities.
+                        .col-12.col-md-6.col-lg-3.text-center.mb-5.mb-lg-0
+                            img.mb-5(src='/assets/img/illustrations/happy-learners.png' height='140' alt='rectangle')
+                            h1.text-secondary 99981
+                            h1.fw-normal.text-secondary
+                                | Happy 
+                                br
+                                |  Learners
+                            p
+                                | Learners from all around 
+                                br
+                                |  the world.
+                        .col-12.col-md-6.col-lg-3.text-center.mb-5.mb-lg-0
+                            img.mb-5(src='/assets/img/illustrations/instructors.png' height='140' alt='rectangle')
+                            h1.text-secondary 578
+                            h1.fw-normal.text-secondary
+                                | Eminent 
+                                br
+                                |  Instructors
+                            p
+                                | Learn your favourite course with 
+                                br
+                                |  world-class instructors.
+                // end of .container
+                // <section> close ============================
+                // ============================================
+                // ============================================
+                // <section> begin ============================
+                section
+                    .container
+                        .row
+                            .col-12
+                                h1.header-title.display-4.header.text-center.mb-5  MEET OUR INSTRUCTORS
+                                .swiper-custom-container
+                                    .swiper-container.theme-slider(data-swiper='{"spaceBetween":1,"slideToClickedSlide":true,"slidesPerView":1,"pagination":{"el":".swiper-pagination","clickable":true,"bulletActiveClass":"bullet-active"},"breakpoints":{"320":{"slidesPerView":1,"spaceBetween":20},"480":{"slidesPerView":2,"spaceBetween":30},"640":{"slidesPerView":4,"spaceBetween":40}}}')
+                                        .swiper-wrapper
+                                            .swiper-slide
+                                                .text-center.product
+                                                    img.w-100.photograph(src='/assets/img/gallery/john.png' alt='')
+                                                    h3.fw-normal.font-base.lh-1.text-black.mt-3
+                                                        | John S. 
+                                                        br
+                                                        |  Sergent
+                                                    p.mb-0 Head of Data Science
+                                            .swiper-slide
+                                                .text-center.product
+                                                    img.w-100.photograph(src='/assets/img/gallery/albrecht.png' alt='')
+                                                    h3.fw-normal.font-base.lh-1.text-black.mt-3
+                                                        | Albrecht 
+                                                        br
+                                                        |  Kachher
+                                                    p.mb-0 Developer and Lead Instructor
+                                            .swiper-slide
+                                                .text-center.product
+                                                    img.w-100.photograph(src='/assets/img/gallery/peter.png' alt='')
+                                                    h3.fw-normal.font-base.lh-1.text-black.mt-3
+                                                        | Peter P. 
+                                                        br
+                                                        |  Rubens
+                                                    p.mb-0 Digital Marketing Expart
+                                            .swiper-slide
+                                                .text-center.product
+                                                    img.w-100.photograph(src='/assets/img/gallery/david.png' alt='')
+                                                    h3.fw-normal.font-base.lh-1.text-black.mt-3
+                                                        | David A. 
+                                                        br
+                                                        |  Sequiros
+                                                    p.mb-0 Engineering Architect
+                                            .swiper-slide
+                                                .text-center.product
+                                                    img.w-100.photograph(src='/assets/img/gallery/john.png' alt='')
+                                                    h3.fw-normal.font-base.lh-1.text-black.mt-3
+                                                        | John S. 
+                                                        br
+                                                        |  Sergent
+                                                    p.mb-0 Head of Data Science
+                                            .swiper-slide
+                                                .text-center.product
+                                                    img.w-100.photograph(src='/assets/img/gallery/albrecht.png' alt='')
+                                                    h3.fw-normal.font-base.lh-1.text-black.mt-3
+                                                        | Albrecht 
+                                                        br
+                                                        |  Kachher
+                                                    p.mb-0 Developer and Lead Instructor
+                                            .swiper-slide
+                                                .text-center.product
+                                                    img.w-100.photograph(src='/assets/img/gallery/peter.png' alt='')
+                                                    h3.fw-normal.font-base.lh-1.text-black.mt-3
+                                                        | Peter P. 
+                                                        br
+                                                        |  Rubens
+                                                    p.mb-0 Digital Marketing Expart
+                                            .swiper-slide
+                                                .text-center.product
+                                                    img.w-100.photograph(src='/assets/img/gallery/david.png' alt='')
+                                                    h3.fw-normal.font-base.lh-1.text-black.mt-3
+                                                        | David A. 
+                                                        br
+                                                        |  Sequiros
+                                                    p.mb-0 Engineering Architect
+                                        .swiper-pagination.position-static.d-flex.justify-contnet-evenly.mx-2.my-5  
+                                        .d-flex.justify-content-sm-end.justify-content-center.mt-sm-n7.m-5
+                                            a.link.fw-normal.fs-2(href='#!')  See all 
+                                    .swiper-button-next.d-none.d-sm-block
+                                        svg.bi.bi-arrow-right(xmlns='http://www.w3.org/2000/svg' width='42' height='27' fill='currentColor' viewbox='0 0 16 16')
+                                            path(fill-rule='evenodd' d='M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z')
+                                    .swiper-button-prev.d-none.d-sm-block
+                                        svg.bi.bi-arrow-left(xmlns='http://www.w3.org/2000/svg' width='42' height='27' fill='currentColor' viewbox='0 0 16 16')
+                                            path(fill-rule='evenodd' d='M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z')
+                    // end of .container
+                    // <section> close ============================
+                    // ============================================
+                    // ============================================
+                    // <section> begin ============================
+                    section.pt-0
+                        .container
+                            .row
+                                .col-12
+                                    .mb-6
+                                        h1.header-title.display-4.header.text-center RECENT BLOGPOST
+                                    .row
+                                        .col-sm-6.col-md-4.col-lg-3.mb-4
+                                            .card.border-100.h-100.shadow
+                                                .card-body.p-4.h-100
+                                                    img.w-100(src='/assets/img/gallery/art-craft.png' alt='')
+                                                    .d-flex.justify-content-between.mt-3.border-bottom.border-100.py-2
+                                                        span.badge.bg-soft-info.rounded-1.text-info.fw-normal.p-2 Art
+                                                        p.mb-0.text-500 23 Nov 2021
+                                                    h3.fw-normal.fs-lg-1.fs-xxl-2.lh-sm.mt-3 The limits between art and craft
+                                                    a.text-secondary.stretched-link(href='#!') Full Article
+                                        .col-sm-6.col-md-4.col-lg-3.mb-4
+                                            .card.border-100.h-100.shadow
+                                                .card-body.p-4.h-100
+                                                    img.w-100(src='/assets/img/gallery/art-lovers.png' alt='')
+                                                    .d-flex.justify-content-between.mt-3.border-bottom.border-100.py-2
+                                                        span.badge.bg-soft-info.rounded-1.text-info.fw-normal.p-2 Info.Tech
+                                                        p.mb-0.text-500 24 Nov 2021
+                                                    h3.fw-normal.fs-lg-1.fs-xxl-2.lh-sm.mt-3 8 guidelines for art lovers
+                                                    a.text-secondary.stretched-link(href='#!') Full Article
+                                        .col-sm-6.col-md-4.col-lg-3.mb-4
+                                            .card.border-100.h-100.shadow
+                                                .card-body.p-4.h-100
+                                                    img.w-100(src='/assets/img/gallery/statistics.png' alt='')
+                                                    .d-flex.justify-content-between.mt-3.border-bottom.border-100.py-2
+                                                        span.badge.bg-soft-info.rounded-1.text-info.fw-normal.p-2 Mathmatics
+                                                        p.mb-0.text-500 25 Nov 2021
+                                                    h3.fw-normal.fs-lg-1.fs-xxl-2.lh-sm.mt-3 The Importance of Statistic
+                                                    a.text-secondary.stretched-link(href='#!') Full Article
+                                        .col-sm-6.col-md-4.col-lg-3.mb-4
+                                            .card.border-100.h-100.shadow
+                                                .card-body.p-4.h-100
+                                                    img.w-100(src='/assets/img/gallery/color-theory.png' alt='')
+                                                    .d-flex.justify-content-between.mt-3.border-bottom.border-100.py-2
+                                                        span.badge.bg-soft-info.rounded-1.text-info.fw-normal.p-2 Design
+                                                        p.mb-0.text-500 26 Nov 2021
+                                                    h3.fw-normal.fs-lg-1.fs-xxl-2.lh-sm.mt-3 The Fundamentals of Color Theory
+                                                    a.text-secondary.stretched-link(href='#!') Full Article
+                                        .col-sm-6.col-md-4.col-lg-3.mb-4
+                                            .card.border-100.h-100.shadow
+                                                .card-body.p-4.h-100
+                                                    img.w-100(src='/assets/img/gallery/writing-tips.png' alt='')
+                                                    .d-flex.justify-content-between.mt-3.border-bottom.border-100.py-2
+                                                        span.badge.bg-soft-info.rounded-1.text-info.fw-normal.p-2 Art
+                                                        p.mb-0.text-500 27 Nov 2021
+                                                    h3.fw-normal.fs-lg-1.fs-xxl-2.lh-sm.mt-3 Excellent short tale writing tips
+                                                    a.text-secondary.stretched-link(href='#!') Full Article
+                                        .col-sm-6.col-md-4.col-lg-3.mb-4
+                                            .card.border-100.h-100.shadow
+                                                .card-body.p-4.h-100
+                                                    img.w-100(src='/assets/img/gallery/classroom.png' alt='')
+                                                    .d-flex.justify-content-between.mt-3.border-bottom.border-100.py-2
+                                                        span.badge.bg-soft-info.rounded-1.text-info.fw-normal.p-2 Education
+                                                        p.mb-0.text-500 28 Nov 2021
+                                                    h3.fw-normal.fs-lg-1.fs-xxl-2.lh-sm.mt-3 Make your Classroom a Community
+                                                    a.text-secondary.stretched-link(href='#!') Full Article
+                                        .col-sm-6.col-md-4.col-lg-3.mb-4
+                                            .card.border-100.h-100.shadow
+                                                .card-body.p-4.h-100
+                                                    img.w-100(src='/assets/img/gallery/collectives.png' alt='')
+                                                    .d-flex.justify-content-between.mt-3.border-bottom.border-100.py-2
+                                                        span.badge.bg-soft-info.rounded-1.text-info.fw-normal.p-2 Art
+                                                        p.mb-0.text-500 29 Nov 2021
+                                                    h3.fw-normal.fs-lg-1.fs-xxl-2.lh-sm.mt-3 Five Turner chosen art collectives
+                                                    a.text-secondary.stretched-link(href='#!') Full Article
+                                        .col-sm-6.col-md-4.col-lg-3.mb-4
+                                            .card.border-100.h-100.shadow
+                                                .card-body.p-4.h-100
+                                                    img.w-100(src='/assets/img/gallery/artistic.png' alt='')
+                                                    .d-flex.justify-content-between.mt-3.border-bottom.border-100.py-2
+                                                        span.badge.bg-soft-info.rounded-1.text-info.fw-normal.p-2 Art
+                                                        p.mb-0.text-500 30 Nov 2021
+                                                    h3.fw-normal.fs-lg-1.fs-xxl-2.lh-sm.mt-3 The artistic highlights of the week
+                                                    a.text-secondary.stretched-link(href='#!') Full Article
+                        // end of .container
+                        // <section> close ============================
+                        // ============================================
+                        // ============================================
+                        // <section> begin ============================
+                        section.bg-soft-primary
+                            .container
+                                .row.flex-center
+                                    .col-lg-5.col-xl-4
+                                        img.w-100(src='/assets/img/illustrations/cta.png' alt='...')
+                                    .col-lg-5.col-xl-4
+                                        h1.fw-normal.text-secondary.mb-4
+                                            | Get Regular 
+                                            br
+                                            | Updates from
+                                        img(src='/assets/img/logos/logo-footer.png' height='75' alt='...')
+                                        h5.text-secondary.fw-normal.my-3 SUBSCRIBE TO NEWSLETTER 
+                                        form.row.gx-2.gy-2.align-items-center
+                                            .col
+                                                .input-group-icon
+                                                    label.visually-hidden(for='inputEmailCta') Address
+                                                    input#inputEmailCta.form-control.input-box.form-eduprix-control.text-light(type='email' placeholder='Email')
+                                            .d-grid
+                                                button.btn.btn-secondary(type='submit') Subscribe
+                            // end of .container
+                            // <section> close ============================
+                            // ============================================
+                            // ============================================
+                            // <section> begin ============================
+                            section.bg-secondary
+                                .container
+                                    .row
+                                        .col-12.col-sm-12.col-lg-6.mb-4.order-0.order-sm-0
+                                            a.text-decoration-none(href='#')
+                                                img(src='/assets/img/logos/logo-footer.png' height='75' alt='...')
+                                            p.text-light.my-4
+                                                | We&apos;re a worldwide community for online learning and teaching
+                                                br.d-none.d-sm-block
+                                                | where anybody can acquire new skills and accomplish their
+                                                br.d-none.d-sm-block
+                                                | objectives by connecting with others. We are dedicated to 
+                                                br.d-none.d-sm-block
+                                                | making a positive difference in the future of education.
+                                        .col-6.col-sm-4.col-lg-2.mb-3.order-2.order-sm-1
+                                            h3.lh-lg.fw-bold.mb-4.text-light.font-sans-serif Eduprix
+                                            ul.list-unstyled.mb-md-4.mb-lg-0
+                                                li.lh-lg
+                                                    a.text-primary(href='#!') About
+                                                li.lh-lg
+                                                    a.text-primary(href='#!') Affiliate
+                                                li.lh-lg
+                                                    a.text-primary(href='#!') Open Eduprix
+                                                li.lh-lg
+                                                    a.text-primary(href='#!') Career
+                                                li.lh-lg
+                                                    a.text-primary(href='#!') News
+                                        .col-6.col-sm-4.col-lg-2.mb-3.order-3.order-sm-2
+                                            h3.lh-lg.fw-bold.text-light.mb-4.font-sans-serif Connect
+                                            ul.list-unstyled.mb-md-4.mb-lg-0
+                                                li.lh-lg
+                                                    a.text-primary(href='#!') Blog
+                                                li.lh-lg
+                                                    a.text-primary(href='#!') Contact Us
+                                                li.lh-lg
+                                                    a.text-primary(href='#!') Help Centre
+                                                li.lh-lg
+                                                    a.text-primary(href='#!') Media Kit
+                                                li.lh-lg
+                                                    a.text-primary(href='#!') Donation
+                                        .col-6.col-sm-4.col-lg-2.mb-3.order-3.order-sm-2
+                                            h3.lh-lg.fw-bold.text-light.mb-4.font-sans-serif  Legal
+                                            ul.list-unstyled.mb-md-4.mb-lg-0
+                                                li.lh-lg
+                                                    a.text-primary(href='#!') Terms of Services
+                                                li.lh-lg
+                                                    a.text-primary(href='#!') Privacy Policy
+                                                li.lh-lg
+                                                    a.text-primary(href='#!') Accessibility
+                                                li.lh-lg
+                                                    a.text-primary(href='#!') Trademark
+                                                li.lh-lg
+                                                    a.text-primary(href='#!') Sitemap
+                                // end of .container
+                                // <section> close ============================
+                                // ============================================
+                                // ============================================
+                                // <section> begin ============================
+                                section.py-0.bg-dark
+                                    .container
+                                        .row.justify-content-md-between.justify-content-evenly.py-4
+                                            .col-12.col-sm-8.col-md-6.col-lg-auto.text-center.text-md-start
+                                                p.fs--1.my-2.fw-light.text-200 All rights Reserved &copy; Your Company, 2021
+                                            .col-12.col-sm-8.col-md-6
+                                                p.fs--1.fw-light.my-2.text-center.text-md-end.text-200
+                                                    | Made with&nbsp;
+                                                    svg.bi.bi-suit-heart-fill(xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='#F95C19' viewbox='0 0 16 16')
+                                                        path(d='M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1z')
+                                                    | &nbsp;by&nbsp;
+                                                    a.fw-bold.text-primary(href='https://themewagon.com/' target='_blank') ThemeWagon 
+                                    // end of .container
+                                    // <section> close ============================
+                                    // ============================================
+// ===============================================
+// End of Main Content
+// ===============================================
+// ===============================================
+// JavaScripts
+// ===============================================
+script(src='/vendors/popper/popper.min.js')
+script(src='/vendors/bootstrap/bootstrap.min.js')
+script(src='/vendors/anchorjs/anchor.min.js')
+script(src='/vendors/is/is.min.js')
+script(src='https://polyfill.io/v3/polyfill.min.js?features=window.scroll')
+script(src='/vendors/fontawesome/all.min.js')
+script(src='/vendors/swiper/swiper-bundle.min.js')
+script(src='/vendors/fontawesome/all.min.js')
+script(src='/vendors/lodash/lodash.min.js')
+script(src='https://polyfill.io/v3/polyfill.min.js?features=window.scroll')
+script(src='/assets/js/theme.js')
+link(href='https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Rubik:wght@300;400;500;600;700;800&display=swap' rel='stylesheet')
