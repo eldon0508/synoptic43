@@ -20,7 +20,7 @@ block content
                 div.col-12
                     div.card
                         div.card-body
-                            form(method="post" action="/charity/" + result.id + "/update")
+                            form(method="post" action="/charity/" + result.id + "/update" enctype="multipart/form-data")
                                 input(type="hidden" name="_csrf" value=_csrf)
                                 div.row
                                     div.col-6
