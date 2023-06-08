@@ -55,6 +55,12 @@ block content
                                                 .custom-file
                                                     input#image.custom-file-input(type='file' name="image" required)
                                                     label.custom-file-label(for='image') Choose file
+                                .row
+                                    .col-6
+                                        div.form-group
+                                            label Current Image
+                                            br
+                                            img.img-fluid(src=(result.image == null) ? '/images/community/default.png' : result.image alt=result.name)
                                 div.row
                                     div.col-12.text-right
                                         a(href="/charity/index").mr-2

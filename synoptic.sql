@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 07, 2023 at 04:08 PM
+-- Generation Time: Jun 08, 2023 at 04:26 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -83,14 +83,25 @@ INSERT INTO `charities` (`id`, `name`, `address`, `official_url`, `google_map_ur
 CREATE TABLE `communities` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `name` varchar(255) NOT NULL,
+  `est_year` int(11) NOT NULL,
   `image` varchar(255) DEFAULT NULL,
   `image_ext` varchar(255) DEFAULT NULL,
-  `description` longtext NOT NULL,
+  `description` longtext DEFAULT NULL,
   `status` tinyint(1) NOT NULL DEFAULT 1,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `communities`
+--
+
+INSERT INTO `communities` (`id`, `name`, `est_year`, `image`, `image_ext`, `description`, `status`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 'Arab', 2020, '/images/community/arab.jpg', '.jpg', NULL, 1, NULL, NULL, NULL),
+(2, 'Chinese', 2019, '/images/community/chinese.png', '.png', NULL, 1, NULL, NULL, NULL),
+(3, 'Spain', 2021, '/images/community/spain.png', '.png', NULL, 1, NULL, NULL, NULL),
+(4, 'France', 2020, '/images/community/france.png', '.png', NULL, 1, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -102,11 +113,12 @@ CREATE TABLE `courses` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `title` varchar(255) NOT NULL,
   `organiser` varchar(255) NOT NULL,
-  `organiser_image` varchar(255) NOT NULL,
+  `organiser_image` varchar(255) NOT NULL DEFAULT '/images/course/moma.png',
   `description` longtext DEFAULT NULL,
   `url` varchar(255) DEFAULT NULL,
   `image` varchar(255) DEFAULT NULL,
   `image_ext` varchar(255) DEFAULT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT 1,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL
@@ -116,15 +128,15 @@ CREATE TABLE `courses` (
 -- Dumping data for table `courses`
 --
 
-INSERT INTO `courses` (`id`, `title`, `organiser`, `organiser_image`, `description`, `url`, `image`, `image_ext`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'The Professional Art Masterclass', 'The Museum of Modern Art', '/images/course/moma.png', NULL, 'https://www.professional-art-masterclass.ac.uk', '/images/course/art-masterclass.png', '.png', NULL, NULL, NULL),
-(2, 'Premiere Pro CC for Beginners', 'The Museum of Modern Art', '/images/course/moma.png', NULL, 'https://www.premiere-pro-cc-for-beginners.ac.uk', '/images/course/premiere.png', '.png', NULL, NULL, NULL),
-(3, 'Electricity & Magnetism', 'Duke University', '/images/course/y.png', NULL, 'https://www.electricity-and-magnetism.ac.uk', '/images/course/electricity.png', '.png', NULL, NULL, NULL),
-(4, 'School chemistry beta', 'Duke University', '/images/course/school.png', NULL, 'https://www.school-chemistry-beta.ac.uk', '/images/course/chemistry.png', '.png', NULL, NULL, NULL),
-(5, 'Modernism in Oriental Art', 'The Museum of Modern Art', '/images/course/moma.png', NULL, 'https://www.modernism-in-oriental-art.ac.uk', '/images/course/oriental-art.png', '.png', NULL, NULL, NULL),
-(6, 'Compositions in Visual Art', 'The Museum of Modern Art', '/images/course/cal-arts.png', NULL, 'https://www.compositions-in-visual-art.ac.uk', '/images/course/visual-art.png', '.png', NULL, NULL, NULL),
-(7, 'High school physics', 'The Museum of Modern Art', '/images/course/school-physics.png', NULL, 'https://www.high-school-physics.ac.uk', '/images/course/physics.png', '.png', NULL, NULL, NULL),
-(8, 'Color Grading with Da Vinci', 'Duke University', '/images/course/moma.png', NULL, 'https://www.color-grading-with-da-vinci.ac.uk', '/images/course/davinci.png', '.png', NULL, NULL, NULL);
+INSERT INTO `courses` (`id`, `title`, `organiser`, `organiser_image`, `description`, `url`, `image`, `image_ext`, `status`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 'The Professional Art Masterclass', 'The Museum of Modern Art', '/images/course/moma.png', NULL, 'https://www.professional-art-masterclass.ac.uk', '/images/course/art-masterclass.png', '.png', 1, NULL, NULL, NULL),
+(2, 'Premiere Pro CC for Beginners', 'The Museum of Modern Art', '/images/course/moma.png', NULL, 'https://www.premiere-pro-cc-for-beginners.ac.uk', '/images/course/premiere.png', '.png', 1, NULL, NULL, NULL),
+(3, 'Electricity & Magnetism', 'Duke University', '/images/course/y.png', NULL, 'https://www.electricity-and-magnetism.ac.uk', '/images/course/electricity.png', '.png', 1, NULL, NULL, NULL),
+(4, 'School chemistry beta', 'Duke University', '/images/course/school.png', NULL, 'https://www.school-chemistry-beta.ac.uk', '/images/course/chemistry.png', '.png', 1, NULL, NULL, NULL),
+(5, 'Modernism in Oriental Art', 'The Museum of Modern Art', '/images/course/moma.png', NULL, 'https://www.modernism-in-oriental-art.ac.uk', '/images/course/oriental-art.png', '.png', 1, NULL, NULL, NULL),
+(6, 'Compositions in Visual Art', 'The Museum of Modern Art', '/images/course/cal-arts.png', NULL, 'https://www.compositions-in-visual-art.ac.uk', '/images/course/visual-art.png', '.png', 1, NULL, NULL, NULL),
+(7, 'High school physics', 'The Museum of Modern Art', '/images/course/school-physics.png', NULL, 'https://www.high-school-physics.ac.uk', '/images/course/physics.png', '.png', 1, NULL, NULL, NULL),
+(8, 'Color Grading with Da Vinci', 'Duke University', '/images/course/moma.png', NULL, 'https://www.color-grading-with-da-vinci.ac.uk', '/images/course/davinci.png', '.png', 1, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -246,7 +258,7 @@ ALTER TABLE `charities`
 -- AUTO_INCREMENT for table `communities`
 --
 ALTER TABLE `communities`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `courses`

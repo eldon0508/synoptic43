@@ -18,9 +18,9 @@ block content
                 div.col-12
                     div.card
                         div.card-header
-                            a(href='/community/create').btn.btn-primary.float-right
+                            a(href='/course/create').btn.btn-primary.float-right
                                 i.fa.fa-plus 
-                                |  Create Community
+                                |  Create Course
                         div.card-body
                             div.row
                                 div.col-12
@@ -28,16 +28,16 @@ block content
                                         thead
                                             tr
                                                 th ID
-                                                th Name
-                                                th Est.
+                                                th Title
+                                                th Organiser
                                                 th Status
                                                 th Action
                                         tbody 
                                             each result, index in results
                                                 tr
                                                     td #{index + 1}
-                                                    td #{result.name}
-                                                    td #{result.est_year}
+                                                    td #{result.title}
+                                                    td #{result.organiser}
                                                     td
                                                         if result.status == 1
                                                             | Active 
@@ -45,10 +45,10 @@ block content
                                                             | Inactive
                                                     td
                                                         div(style='display:inline-block')
-                                                            a(href='/community/' + result.id + '/edit').btn.btn-sm.btn-primary.mx-2
+                                                            a(href='/course/' + result.id + '/edit').btn.btn-sm.btn-primary.mx-2
                                                                 i.fa.fa-edit
                                                         div(style='display:inline-block')
-                                                            form(method='post' action='/community/' + result.id + '/destroy')
+                                                            form(method='post' action='/course/' + result.id + '/destroy')
                                                                 input(type="hidden" name="_method" value="DELETE")
                                                                 button.btn.btn-sm.btn-danger.js-show-confirmation-modal(type='submit')
                                                                     i.fas.fa-trash-alt

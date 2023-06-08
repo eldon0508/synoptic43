@@ -11,7 +11,7 @@ block content
                         li.breadcrumb-item
                             a(href='/transaction/index') Home
                         li.breadcrumb-item
-                            a(href='/news/index') News
+                            a(href='/course/index') Course
                         li.breadcrumb-item.active Edit
 
     section.content
@@ -20,7 +20,7 @@ block content
                 div.col-12
                     div.card
                         div.card-body
-                            form(method="post" action="/news/" + result.id + "/update" enctype="multipart/form-data")
+                            form(action="/course/" + result.id + "/update" method="post" enctype="multipart/form-data")
                                 input(type="hidden" name="_csrf" value=_csrf)
                                 div.row
                                     div.col-6
@@ -29,25 +29,29 @@ block content
                                             input.form-control#title(name='title' placeholder='Enter Title' required value=result.title)
                                     div.col-6
                                         div.form-group
-                                            label(for="news_category_id") Category
-                                            select.form-control#news_category_id(name="news_category_id" required)
-                                                option(value="") --- Select Category ---
-                                                each category in categories
-                                                    option(value=category.id selected=(result.news_category_id == category.id)) #{category.name}
+                                            label(for="status") Status
+                                            select.form-control#status(name="status" required)
+                                                option(value="") --- Select Status ---
+                                                option(value=1 selected=(result.status == 1)) Active
+                                                option(value=0 selected=(result.status == 0)) Inactive
+                                div.row
+                                    div.col-6
+                                        div.form-group
+                                            label(for="organiser") Organiser
+                                            input.form-control#organiser(name='organiser' placeholder='Enter Organiser' required value=result.organiser)
+                                    div.col-6
+                                        div.form-group
+                                            label(for="url") URL
+                                            input.form-control#url(type="url" name='url' placeholder='https://example.com' required value=result.url)
                                 div.row
                                     div.col-6
                                         div.form-group
                                             label(for='image') Image
                                             .input-group
                                                 .custom-file
-                                                    input#image.custom-file-input(type='file' name="image" required)
+                                                    input#image.custom-file-input(type='file' name="image")
                                                     label.custom-file-label(for='image') Choose file
                                     div.col-6
-                                        div.form-group
-                                            label(for="url") URL
-                                            input.form-control#url(type="url" name='url' placeholder='https://example.com' required value=result.url)
-                                div.row
-                                    div.col-12
                                         div.form-group
                                             label(for="description") Description
                                             textarea.form-control#description(name="description") #{result.description}
@@ -59,6 +63,6 @@ block content
                                             img.img-fluid(src=(result.image == null) ? '/images/community/default.png' : result.image alt=result.name)
                                 div.row
                                     div.col-12.text-right
-                                        a(href="/news/index").mr-2
+                                        a(href="/course/index").mr-2
                                             button.btn.btn-secondary(type='button') Back
                                         button.btn.btn-success(type='submit') Submit

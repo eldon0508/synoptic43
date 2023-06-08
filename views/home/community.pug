@@ -119,151 +119,16 @@ main
                                                 path(fill-rule='evenodd' d='M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z')
     // ============================================
 
-    // RECENT NEWS section start ============================
-    section.pt-0#news-section
-        .container
-            .row
-                .col-12
-                    .mb-6
-                        h1.header-title.display-4.header.text-center RECENT NEWS
-                    .row
-                        each result in news
-                            .col-sm-6.col-md-4.col-lg-3.mb-4
-                                .card.border-100.h-100.shadow
-                                    .card-body.p-4.h-100
-                                        img.w-100(src=result.image)
-                                        .d-flex.justify-content-between.mt-3.border-bottom.border-100.py-2
-                                            span.badge.bg-soft-info.rounded-1.text-info.fw-normal.p-2 #{result.category_name}
-                                            p.mb-0.text-500 #{new Date(result.created_at).toDateString()}
-                                        h3.fw-normal.fs-lg-1.fs-xxl-2.lh-sm.mt-3 #{result.title}
-                                        a.text-secondary.stretched-link(href=result.url) Full Article
-    // RECENT NEWS section end ============================
-
-    // TOP COURSES section begin ============================
-    section.py-6#course-section
-        .container
-            .row
-                h1.header-title.display-4.header.text-start.mb-5  TOP COURSES
-                each course in courses
-                    .col-sm-6.col-lg-3.mb-4
-                        .card.border-0.h-100
-                            .position-relative
-                                img.w-100(src=course.image alt='courses')
-                                .course-logo
-                                    img(src=course.organiser_image alt='logo')
-                                .ps-6
-                                    span.badge.bg-primary.rounded-0(style='padding: 11.1px 21px') Free
-                            .card-body.px-0.py-3
-                                h5.mb-0.font-sans-serif.fw-bold.fs-md-0.fs-lg-1 #{course.title}
-                                a.text-muted.fs--1.stretched-link.text-decoration-none(href=course.url target="_blank") #{course.organiser}
-    // TOP COURSES section close ============================
-
-    // CHARITIES section begin ============================
-    section.bg-secondary#charity-section
-        .container
-            .row.g-3
-                h1.header-title-explore.display-4.header.text-start.mb-5  EXPLORE CHARITIES
-                each charity in charities
-                    .col-sm-4.col-lg-3
-                        .card.card-hover.h-100
-                            .card-body.d-flex.align-items-center.px-4.px-lg-2.px-xl-4
-                                .d-flex.align-items-center
-                                    .icon-box
-                                        img.img-fluid.eduprix-icon(src=charity.image alt=charity.name)
-                                    .flex-grow-1.ms-3
-                                        h4.fs-lg-1.text-light.mb-0 #{charity.name}
-                                        a.stretched-link.explore-link(href=charity.official_url target="_blank") #{charity.address}
-    // CHARITIES section close ============================
-
-    // USER REVIEW section begin ============================
-    section#testimonial
-        .container
-            .row.justify-content-end
-                .col-2.position-xl-relative
-                    button.carousel-control-prev(type='button' data-bs-target='#carouselStudentReview' data-bs-slide='prev')
-                        span.carousel-control-prev-icon(aria-hidden='true')
-                        span.visually-hidden Previous
-                    button.carousel-control-next(type='button' data-bs-target='#carouselStudentReview' data-bs-slide='next')
-                        span.carousel-control-next-icon(aria-hidden='true')
-                        span.visually-hidden Next
-            h1.header-title.display-4.header.text-start.mb-5  USER REVIEW
-            .row.flex-center.h-100
-                #carouselStudentReview.carousel.slide(data-bs-ride='carousel')
-                    .carousel-inner.ps-4
-                        each review in reviews
-                            .carousel-item.active
-                                .row.h-100.align-items-center
-                                    .col-auto.p-0
-                                        .card.border-0.h-100
-                                            .card-body.h-100.p-0.pe-4
-                                                .d-flex.align-items-start
-                                                    img(src='/assets/img/gallery/rectangle.png' alt='rectangle')
-                                                    img(src=review.image alt='testimonials' width='315')
-                                    .col-md-5.col-lg-6.col-xl-7.mb-4
-                                        .bg-holder.z-index--1(style='background-image:url(/assets/img/gallery/quotation.png);background-position:top center;background-size:auto;')
-                                        // /.bg-holder
-                                        h1.fw-normal.lh-1.mt-4.mt-lg-0
-                                            | #{review.name}
-                                        h4.fw-light #{review.origin}
-                                        p.mt-4.pe-xxl-8
-                                            | #{review.comment}
-                    .row.justify-content-end
-                        .col-auto
-                            .carousel-indicators.position-relative
-                                button.active(type='button' data-bs-target='#carouselStudentReview' data-bs-slide-to='0' aria-current='true' aria-label='Slide 1')
-                                button(type='button' data-bs-target='#carouselStudentReview' data-bs-slide-to='1' aria-label='Slide 2')
-                                button(type='button' data-bs-target='#carouselStudentReview' data-bs-slide-to='2' aria-label='Slide 3')
-    // USER REVIEW section close ============================
-
-    // <section> begin ============================
-    section.bg-soft-primary
-        .container
-            .row.flex-center
-                .col-12.col-md-6.col-lg-3.text-center.mb-5.mb-lg-0
-                    img.mb-5(src='/assets/img/illustrations/top-course.png' height='140' alt='rectangle')
-                    h1.text-secondary 1257
-                    h1.fw-normal.text-secondary
-                        | Top 
-                        br
-                        |  Courses
-                    p
-                        | Take courses from the world&rsquo;s best 
-                        br
-                        |  instructors and universities.
-                .col-12.col-md-6.col-lg-3.text-center.mb-5.mb-lg-0
-                    img.mb-5(src='/assets/img/illustrations/happy-learners.png' height='140' alt='rectangle')
-                    h1.text-secondary 99981
-                    h1.fw-normal.text-secondary
-                        | Happy 
-                        br
-                        |  Learners
-                    p
-                        | Learners from all around 
-                        br
-                        |  the world.
-                .col-12.col-md-6.col-lg-3.text-center.mb-5.mb-lg-0
-                    img.mb-5(src='/assets/img/illustrations/instructors.png' height='140' alt='rectangle')
-                    h1.text-secondary 578
-                    h1.fw-normal.text-secondary
-                        | Eminent 
-                        br
-                        |  Instructors
-                    p
-                        | Learn your favourite course with 
-                        br
-                        |  world-class instructors.
-    // <section> close ============================
-
-    // COMMUNITIES section begin ============================
+    // ALL COMMUNITIES section begin ============================
     section#community-section
         .container
             .row
                 .col-12
-                    h1.header-title.display-4.header.text-center.mb-5 COMMUNITIES
+                    h1.header-title.display-4.header.text-center.mb-5 ALL COMMUNITIES
                     .swiper-custom-container
                         .swiper-container.theme-slider(data-swiper='{"spaceBetween":1,"slideToClickedSlide":true,"slidesPerView":1,"pagination":{"el":".swiper-pagination","clickable":true,"bulletActiveClass":"bullet-active"},"breakpoints":{"320":{"slidesPerView":1,"spaceBetween":20},"480":{"slidesPerView":2,"spaceBetween":30},"640":{"slidesPerView":4,"spaceBetween":40}}}')
                             .swiper-wrapper
-                                each community in communities
+                                each community in results
                                     a(href="#")
                                         .swiper-slide
                                             .text-center.product
@@ -272,7 +137,7 @@ main
                                                 p.mb-0 Est. in #{community.est_year}
                             .swiper-pagination.position-static.d-flex.justify-contnet-evenly.mx-2.my-5  
                             .d-flex.justify-content-sm-end.justify-content-center.mt-sm-n7.m-5
-                                a.link.fw-normal.fs-2(href='/home/communities/#community-section')  See all 
+                                a.link.fw-normal.fs-2(href='#!')  See all 
                         .swiper-button-next.d-none.d-sm-block
                             svg.bi.bi-arrow-right(xmlns='http://www.w3.org/2000/svg' width='42' height='27' fill='currentColor' viewbox='0 0 16 16')
                                 path(fill-rule='evenodd' d='M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z')

@@ -14,6 +14,8 @@ var indexRouter = require('./routes/index'),
   newsRouter = require('./routes/news'),
   charityRouter = require('./routes/charity'),
   communityRouter = require('./routes/community'),
+  courseRouter = require('./routes/course'),
+  reviewRouter = require('./routes/review'),
   homeRouter = require('./routes/home');
 
 const app = express();
@@ -65,6 +67,8 @@ app.use('/newsCategory', [isAuth, isAdmin], newsCategoryRouter);
 app.use('/news', [isAuth, isAdmin], newsRouter);
 app.use('/charity', [isAuth, isAdmin], charityRouter);
 app.use('/community', [isAuth, isAdmin], communityRouter);
+app.use('/course', [isAuth, isAdmin], courseRouter);
+app.use('/review', [isAuth, isAdmin], reviewRouter);
 app.use('/home', homeRouter);
 
 // catch 404 and forward to error handler

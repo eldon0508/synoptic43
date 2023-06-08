@@ -29,16 +29,17 @@ block content
                                             input.form-control#name(name='name' placeholder='Enter Name' required)
                                     div.col-6
                                         div.form-group
-                                            label(for="address") Address
-                                            input.form-control#address(name='address' placeholder='Enter Address' required)
-                                div.row
-                                    div.col-6
-                                        div.form-group
                                             label(for="status") Status
                                             select.form-control#status(name="status" required)
                                                 option(value="") --- Select Status ---
                                                 option(value=1) Active
                                                 option(value=0) Inactive
+                                    
+                                div.row
+                                    div.col-6
+                                        div.form-group
+                                            label(for="est_year") Est. Year
+                                            input.form-control#est_year(name='est_year' placeholder='Enter Est. Year' required min=2000 max=2100)
                                     div.col-6
                                         div.form-group
                                             label(for='image') Image

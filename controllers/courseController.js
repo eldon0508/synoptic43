@@ -6,12 +6,12 @@ const { v4: uuidv4 } = require('uuid'),
 
 /* index */
 const index = (req, res, next) => {
-    var query = `SELECT * FROM communities WHERE deleted_at IS NULL`;
+    var query = `SELECT * FROM courses WHERE deleted_at IS NULL`;
     db.query(query, function (err, data) {
         if (err) { res.render('500'); }
 
-        res.render('community/index', {
-            title: 'Community',
+        res.render('course/index', {
+            title: 'Course',
             results: data,
             msg_type: req.flash('msg_type'),
             msg: req.flash('msg'),
@@ -22,8 +22,8 @@ const index = (req, res, next) => {
 
 /* create */
 const create = (req, res, next) => {
-    res.render('community/create', {
-        title: 'Community - Create',
+    res.render('course/create', {
+        title: 'Course - Create',
         req: req,
     });
 }
@@ -33,10 +33,10 @@ const store = async (req, res, next) => {
     await db.beginTransaction();
 
     try {
-        var storeDir = '/images/community',
+        var storeDir = '/images/course',
             dir = path.dirname(__dirname) + '/public' + storeDir;
 
-        // If './public/images/community' not exist, create one
+        // If './public/images/course' not exist, create one
         if (!fs.existsSync(dir)) {
             fs.mkdirSync(dir, { recursive: true });
         }
@@ -58,20 +58,21 @@ const store = async (req, res, next) => {
         var d = new Date(),
             dt = d.toISOString().replace('T', ' ').substring(0, 19),
             q2 = {
-                name: req.body.name,
-                est_year: req.body.est_year,
+                title: req.body.title,
+                status: req.body.status,
+                url: req.body.url,
                 image: storePath,
                 image_ext: ext,
+                organiser: req.body.organiser,
                 description: req.body.description,
-                status: req.body.status,
                 created_at: dt,
                 updated_at: dt,
             };
 
-        var query = "INSERT INTO communities SET ?";
+        var query = "INSERT INTO courses SET ?";
 
         db.query(query, q2);
-        req.flash('msg', 'Community has been created!');
+        req.flash('msg', 'Course has been created!');
         req.flash('msg_type', 'success');
         db.commit();
     } catch (error) {
@@ -80,19 +81,19 @@ const store = async (req, res, next) => {
         req.flash('msg_type', 'error');
     }
 
-    res.redirect("/community/index");
+    res.redirect("/course/index");
 }
 
 /* edit */
 const edit = (req, res, next) => {
     var id = req.params.id;
-    var query = `SELECT * FROM communities WHERE id = "${id}"`;
+    var query = `SELECT * FROM courses WHERE id = "${id}"`;
 
     db.query(query, function (err, data) {
         if (err) throw err;
 
-        var title = data[0].name + ' - Edit';
-        res.render('community/edit', {
+        var title = data[0].title + ' - Edit';
+        res.render('course/edit', {
             title: title,
             result: data[0],
             req: req,
@@ -112,10 +113,10 @@ const update = async (req, res, next) => {
         // IF: new image uploaded, ELSE: no image uploaded
         // Retrieve image information and generate new name
         if (image != null) {
-            var storeDir = '/images/community',
+            var storeDir = '/images/course',
                 dir = path.dirname(__dirname) + '/public' + storeDir;
 
-            // If './public/images/community' not exist, create one
+            // If './public/images/course' not exist, create one
             if (!fs.existsSync(dir)) { fs.mkdirSync(dir, { recursive: true }); }
 
             var ext = path.extname(image.name),
@@ -130,31 +131,38 @@ const update = async (req, res, next) => {
             // Finish uploading and rename to unique filename
             fs.rename(dir + '/' + oldName, dir + '/' + newName, () => { });
             console.log(uploadPath, storePath);
-            var q2 = {
-                name: req.body.name,
-                est_year: req.body.est_year,
-                image: storePath,
-                image_ext: ext,
-                description: req.body.description,
-                status: req.body.status,
-                updated_at: dt,
-            };
+            var d = new Date(),
+                dt = d.toISOString().replace('T', ' ').substring(0, 19),
+                q2 = {
+                    title: req.body.title,
+                    status: req.body.status,
+                    url: req.body.url,
+                    image: storePath,
+                    image_ext: ext,
+                    organiser: req.body.organiser,
+                    description: req.body.description,
+                    created_at: dt,
+                    updated_at: dt,
+                };
         } else {
-            var q2 = {
-                name: req.body.name,
-                est_year: req.body.est_year,
-                // image: storePath,
-                // image_ext: ext,
-                description: req.body.description,
-                status: req.body.status,
-                updated_at: dt,
-            };
+            var d = new Date(),
+                dt = d.toISOString().replace('T', ' ').substring(0, 19),
+                q2 = {
+                    title: req.body.title,
+                    status: req.body.status,
+                    url: req.body.url,
+                    // image: storePath,
+                    // image_ext: ext,
+                    organiser: req.body.organiser,
+                    description: req.body.description,
+                    updated_at: dt,
+                };
         }
 
-        var query = `UPDATE communities SET ? WHERE id = "${req.params.id}"`;
+        var query = `UPDATE courses SET ? WHERE id = "${req.params.id}"`;
 
         db.query(query, q2);
-        req.flash('msg', 'Community has been updated!');
+        req.flash('msg', 'Course has been updated!');
         req.flash('msg_type', 'success');
         db.commit();
     } catch (error) {
@@ -163,7 +171,7 @@ const update = async (req, res, next) => {
         req.flash('msg_type', 'error');
     }
 
-    res.redirect("/community/index");
+    res.redirect("/course/index");
 }
 
 /* destroy */
@@ -173,10 +181,10 @@ const destroy = async (req, res, next) => {
     try {
         var d = new Date(),
             dt = d.toISOString().replace('T', ' ').substring(0, 19),
-            query = `UPDATE communities SET deleted_at = "${dt}" WHERE id = "${req.params.id}"`;
+            query = `UPDATE courses SET deleted_at = "${dt}" WHERE id = "${req.params.id}"`;
 
         db.query(query);
-        req.flash('msg', 'Community has been deleted!');
+        req.flash('msg', 'Course has been deleted!');
         req.flash('msg_type', 'success');
         db.commit();
     } catch (error) {
@@ -184,7 +192,7 @@ const destroy = async (req, res, next) => {
         req.flash('msg', 'Failed to delete record. Something went wrong!');
         req.flash('msg_type', 'error');
     }
-    res.redirect("/community/index");
+    res.redirect("/course/index");
 }
 
 module.exports = { index, create, store, edit, update, destroy };
