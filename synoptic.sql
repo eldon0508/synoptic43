@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 08, 2023 at 04:26 PM
+-- Generation Time: Jun 10, 2023 at 08:13 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -98,7 +98,7 @@ CREATE TABLE `communities` (
 --
 
 INSERT INTO `communities` (`id`, `name`, `est_year`, `image`, `image_ext`, `description`, `status`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'Arab', 2020, '/images/community/arab.jpg', '.jpg', NULL, 1, NULL, NULL, NULL),
+(1, 'Arab', 2020, '/images/community/arab.png', '.png', NULL, 1, NULL, NULL, NULL),
 (2, 'Chinese', 2019, '/images/community/chinese.png', '.png', NULL, 1, NULL, NULL, NULL),
 (3, 'Spain', 2021, '/images/community/spain.png', '.png', NULL, 1, NULL, NULL, NULL),
 (4, 'France', 2020, '/images/community/france.png', '.png', NULL, 1, NULL, NULL, NULL);
@@ -196,6 +196,25 @@ INSERT INTO `news_categories` (`id`, `name`, `description`, `status`, `created_a
 (6, 'Lifestyle', 'Lifestyle', 1, NULL, NULL, NULL),
 (7, 'Sport', 'Sport & Leisure', 1, NULL, NULL, NULL);
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `reviews`
+--
+
+CREATE TABLE `reviews` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `origin` varchar(255) NOT NULL,
+  `comment` longtext NOT NULL,
+  `image` varchar(255) DEFAULT NULL,
+  `image_ext` varchar(255) DEFAULT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT 1,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `deleted_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
 --
 -- Indexes for dumped tables
 --
@@ -239,6 +258,12 @@ ALTER TABLE `news_categories`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `reviews`
+--
+ALTER TABLE `reviews`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -277,6 +302,12 @@ ALTER TABLE `news`
 --
 ALTER TABLE `news_categories`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `reviews`
+--
+ALTER TABLE `reviews`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- Constraints for dumped tables
