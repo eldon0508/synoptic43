@@ -22342,3 +22342,13 @@ ul {
   padding: 8px;
   display: inline;
 }
+
+#naviTopBtn {
+  position: fixed;
+  bottom: 100px;
+  right: 45px;
+  z-index: 99;
+  font-size: 18px;
+  border: none;
+  outline: none;
+}

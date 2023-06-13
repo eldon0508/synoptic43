@@ -32,8 +32,7 @@ head
 // Main Content
 // ===============================================
 main
-    section.py-3(style='background-color:#10203F;')
-
+    section.py-3(style='background-color:#10203F;')#top-section
         #topNav.container
             .row.justify-content-between
                 .col-3
@@ -41,14 +40,47 @@ main
                         img(src='/assets/img/logos/logo.png' width='141' alt='logo')
                 .col-9
                     ul#topNewNav
+                        li
+                            a(href="/home")
+                                img(src='/assets/img/icons/uk.png')
+                            | |
+                            a(href="?lang=cn")
+                                img(src='/assets/img/icons/china.png')
+                            | |
+                            a(href="?lang=sp")
+                                img(src='/assets/img/icons/spain.png')
                         li 
-                            a(href='/home/news/#news-section') News
+                            a(href='/home/news/#news-section') 
+                                if(lang == 'cn')
+                                    | 新闻
+                                else if (lang == 'sp')
+                                    | Noticias
+                                else 
+                                    | News
                         li 
-                            a(href='/home/courses/#course-section') Course
+                            a(href='/home/courses/#course-section') 
+                                if(lang == 'cn')
+                                    | 课程
+                                else if (lang == 'sp')
+                                    | Cursos
+                                else 
+                                    | Course
                         li 
-                            a(href='/home/communities/#community-section') Community
+                            a(href='/home/communities/#community-section') 
+                                if(lang == 'cn')
+                                    | 社区
+                                else if (lang == 'sp')
+                                    | Comunidad
+                                else 
+                                    | Community
                         li 
-                            a(href='#charity-section') Charity
+                            a(href='#charity-section') 
+                                if(lang == 'cn')
+                                    | 慈善
+                                else if (lang == 'sp')
+                                    | Caridad
+                                else 
+                                    | Charity
     .py-7.py-sm-8.py-lg-10.py-xxl-9.py-xxl-11(style='background-color:#10203F;')
 
     // ============================================
@@ -125,7 +157,13 @@ main
             .row
                 .col-12
                     .mb-6
-                        h1.header-title.display-4.header.text-center RECENT NEWS
+                        h1.header-title.display-4.header.text-center
+                            if(lang == 'cn')
+                                | 近期新闻
+                            else if (lang == 'sp')
+                                | NOTICIAS RECIENTES
+                            else 
+                                | RECENT NEWS
                     .row
                         each result in news
                             .col-sm-6.col-md-4.col-lg-3.mb-4
@@ -143,7 +181,13 @@ main
     section.py-6#course-section
         .container
             .row
-                h1.header-title.display-4.header.text-start.mb-5  TOP COURSES
+                h1.header-title.display-4.header.text-start.mb-5 
+                    if(lang == 'cn')
+                        | 实用课程
+                    else if (lang == 'sp')
+                        | PRINCIPALES CURSOS
+                    else 
+                        | TOP COURSES
                 each course in courses
                     .col-sm-6.col-lg-3.mb-4
                         .card.border-0.h-100
@@ -162,7 +206,13 @@ main
     section.bg-secondary#charity-section
         .container
             .row.g-3
-                h1.header-title-explore.display-4.header.text-start.mb-5  EXPLORE CHARITIES
+                h1.header-title-explore.display-4.header.text-start.mb-5 
+                    if(lang == 'cn')
+                        | 慈善团体
+                    else if (lang == 'sp')
+                        | EXPLORA CARIDADES
+                    else 
+                        | EXPLORE CHARITIES
                 each charity in charities
                     .col-sm-4.col-lg-3
                         .card.card-hover.h-100
@@ -259,7 +309,13 @@ main
         .container
             .row
                 .col-12
-                    h1.header-title.display-4.header.text-center.mb-5 COMMUNITIES
+                    h1.header-title.display-4.header.text-center.mb-5
+                        if(lang == 'cn')
+                            | 社区团体
+                        else if (lang == 'sp')
+                            | GRUPO COMUNIDAD
+                        else 
+                            | COMMUNITIES
                     .swiper-custom-container
                         .swiper-container.theme-slider(data-swiper='{"spaceBetween":1,"slideToClickedSlide":true,"slidesPerView":1,"pagination":{"el":".swiper-pagination","clickable":true,"bulletActiveClass":"bullet-active"},"breakpoints":{"320":{"slidesPerView":1,"spaceBetween":20},"480":{"slidesPerView":2,"spaceBetween":30},"640":{"slidesPerView":4,"spaceBetween":40}}}')
                             .swiper-wrapper
@@ -272,7 +328,13 @@ main
                                                 p.mb-0 Est. in #{community.est_year}
                             .swiper-pagination.position-static.d-flex.justify-contnet-evenly.mx-2.my-5  
                             .d-flex.justify-content-sm-end.justify-content-center.mt-sm-n7.m-5
-                                a.link.fw-normal.fs-2(href='/home/communities/#community-section')  See all 
+                                a.link.fw-normal.fs-2(href='/home/communities/#community-section')
+                                    if(lang == 'cn')
+                                        | 查看全部
+                                    else if (lang == 'sp')
+                                        | Ver todo
+                                    else 
+                                        | See all
                         .swiper-button-next.d-none.d-sm-block
                             svg.bi.bi-arrow-right(xmlns='http://www.w3.org/2000/svg' width='42' height='27' fill='currentColor' viewbox='0 0 16 16')
                                 path(fill-rule='evenodd' d='M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z')
@@ -319,44 +381,125 @@ main
                         br.d-none.d-sm-block
                         | making a positive difference in the future of education.
                 .col-6.col-sm-4.col-lg-2.mb-3.order-2.order-sm-1
-                    h3.lh-lg.fw-bold.mb-4.text-light.font-sans-serif Eduprix
+                    h3.lh-lg.fw-bold.mb-4.text-light.font-sans-serif Govan
                     ul.list-unstyled.mb-md-4.mb-lg-0
-                        li.lh-lg
-                            a.text-primary(href='#!') About
-                        li.lh-lg
-                            a.text-primary(href='#!') Affiliate
-                        li.lh-lg
-                            a.text-primary(href='#!') Open Eduprix
-                        li.lh-lg
-                            a.text-primary(href='#!') Career
-                        li.lh-lg
-                            a.text-primary(href='#!') News
+                        if(lang == 'cn')
+                            li.lh-lg
+                                a.text-primary(href='#!') 关于
+                            li.lh-lg
+                                a.text-primary(href='#!') 合作
+                            li.lh-lg
+                                a.text-primary(href='#!') Open Eduprix
+                            li.lh-lg
+                                a.text-primary(href='#!') 事业
+                            li.lh-lg
+                                a.text-primary(href='#!') 新闻
+                        else if (lang == 'sp')
+                            li.lh-lg
+                            a.text-primary(href='#!') Acerca de
+                            li.lh-lg
+                                a.text-primary(href='#!') Afiliado
+                            li.lh-lg
+                                a.text-primary(href='#!') Open Eduprix
+                            li.lh-lg
+                                a.text-primary(href='#!') Carrera
+                            li.lh-lg
+                            a.text-primary(href='#!') Noticias
+                        else 
+                            li.lh-lg
+                                a.text-primary(href='#!') About
+                            li.lh-lg
+                                a.text-primary(href='#!') Affiliate
+                            li.lh-lg
+                                a.text-primary(href='#!') Open Eduprix
+                            li.lh-lg
+                                a.text-primary(href='#!') Career
+                            li.lh-lg
+                                a.text-primary(href='#!') News
                 .col-6.col-sm-4.col-lg-2.mb-3.order-3.order-sm-2
-                    h3.lh-lg.fw-bold.text-light.mb-4.font-sans-serif Connect
+                    h3.lh-lg.fw-bold.text-light.mb-4.font-sans-serif 
+                        if(lang == 'cn')
+                            | 联络
+                        else if (lang == 'sp')
+                            | Conectar
+                        else
+                            | Connect
                     ul.list-unstyled.mb-md-4.mb-lg-0
-                        li.lh-lg
-                            a.text-primary(href='#!') Blog
-                        li.lh-lg
-                            a.text-primary(href='#!') Contact Us
-                        li.lh-lg
-                            a.text-primary(href='#!') Help Centre
-                        li.lh-lg
-                            a.text-primary(href='#!') Media Kit
-                        li.lh-lg
-                            a.text-primary(href='#!') Donation
+                        if(lang == 'cn')
+                            li.lh-lg
+                                a.text-primary(href='#!') 博客
+                            li.lh-lg
+                                a.text-primary(href='#!') 联络我们
+                            li.lh-lg
+                                a.text-primary(href='#!') 帮助中心
+                            li.lh-lg
+                                a.text-primary(href='#!') 媒体工具包
+                            li.lh-lg
+                                a.text-primary(href='#!') 捐助
+                        else if (lang == 'sp')
+                            li.lh-lg
+                            a.text-primary(href='#!') Contáctenos
+                            li.lh-lg
+                                a.text-primary(href='#!') Contáctenos
+                            li.lh-lg
+                                a.text-primary(href='#!') Centro de ayuda
+                            li.lh-lg
+                                a.text-primary(href='#!') Donación
+                            li.lh-lg
+                            a.text-primary(href='#!') Donación
+                        else
+                            li.lh-lg
+                                a.text-primary(href='#!') Blog
+                            li.lh-lg
+                                a.text-primary(href='#!') Contact Us
+                            li.lh-lg
+                                a.text-primary(href='#!') Help Centre
+                            li.lh-lg
+                                a.text-primary(href='#!') Media Kit
+                            li.lh-lg
+                                a.text-primary(href='#!') Donation
                 .col-6.col-sm-4.col-lg-2.mb-3.order-3.order-sm-2
-                    h3.lh-lg.fw-bold.text-light.mb-4.font-sans-serif  Legal
+                    h3.lh-lg.fw-bold.text-light.mb-4.font-sans-serif
+                        if(lang == 'cn')
+                            | 法条
+                        else if (lang == 'sp')
+                            | Legal
+                        else
+                            | Legal
                     ul.list-unstyled.mb-md-4.mb-lg-0
-                        li.lh-lg
-                            a.text-primary(href='#!') Terms of Services
-                        li.lh-lg
-                            a.text-primary(href='#!') Privacy Policy
-                        li.lh-lg
-                            a.text-primary(href='#!') Accessibility
-                        li.lh-lg
-                            a.text-primary(href='#!') Trademark
-                        li.lh-lg
-                            a.text-primary(href='#!') Sitemap
+                        if(lang == 'cn')
+                            li.lh-lg
+                                a.text-primary(href='#!') 服务条款
+                            li.lh-lg
+                                a.text-primary(href='#!') 隐私政策
+                            li.lh-lg
+                                a.text-primary(href='#!') 辅助功能
+                            li.lh-lg
+                                a.text-primary(href='#!') 商标
+                            li.lh-lg
+                                a.text-primary(href='#!') 网站地图
+                        else if (lang == 'sp')
+                            li.lh-lg
+                            a.text-primary(href='#!') Términos de servicios
+                            li.lh-lg
+                                a.text-primary(href='#!') Política de privacidad
+                            li.lh-lg
+                                a.text-primary(href='#!') Accesibilidad
+                            li.lh-lg
+                                a.text-primary(href='#!') Marca comercial
+                            li.lh-lg
+                            a.text-primary(href='#!') Mapa del sitio
+                        else
+                            li.lh-lg
+                                a.text-primary(href='#!') Terms of Services
+                            li.lh-lg
+                                a.text-primary(href='#!') Privacy Policy
+                            li.lh-lg
+                                a.text-primary(href='#!') Accessibility
+                            li.lh-lg
+                                a.text-primary(href='#!') Trademark
+                            li.lh-lg
+                                a.text-primary(href='#!') Sitemap
     // <section> close ============================
 
     // <section> begin ============================
@@ -373,6 +516,9 @@ main
                         | &nbsp;by&nbsp;
                         a.fw-bold.text-primary(href='https://themewagon.com/' target='_blank') ThemeWagon
     // <section> close ============================
+
+    a(href="#top-section")
+        button#naviTopBtn.badge.bg-soft-danger.rounded-1.text-info.fw-normal.p-2 Back to Top
 
 // ===============================================
 // End of Main Content

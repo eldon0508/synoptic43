@@ -1,5 +1,6 @@
 var db = require('../database');
 const dd = require('dump-die');
+const url = require('url');
 
 /* home */
 const index = (req, res, next) => {
@@ -12,7 +13,18 @@ const index = (req, res, next) => {
     db.query(query, function (err, data) {
         if (err) { dd(err); }
 
+        // Retrieve full URL when redirect
+        var fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
+        // Create new URL object
+        const current_url = new URL(fullUrl);
+        // get access to URLSearchParams object
+        const search_params = current_url.searchParams;
+        var lang = search_params.get('lang');
+
+        console.log(fullUrl, current_url, lang);
+
         res.render('home/index', {
+            lang: lang,
             news: data[0],
             courses: data[1],
             charities: data[2],
