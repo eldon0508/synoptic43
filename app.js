@@ -1,3 +1,4 @@
+/* import require functions */
 var createError = require('http-errors');
 const express = require('express');
 const path = require('path'),
@@ -8,7 +9,7 @@ const path = require('path'),
   passport = require('passport'),
   fileUpload = require('express-fileupload');
 
-// Routes declaration
+/* Routes declaration */
 var indexRouter = require('./routes/index'),
   newsCategoryRouter = require('./routes/newCategory'),
   newsRouter = require('./routes/news'),
