@@ -50,6 +50,7 @@ const store = async (req, res, next) => {
             storePath = storeDir + '/' + newName;
 
         // Use the mv() method to place the file somewhere on your server
+        //testcomment
         image.mv(uploadPath);
 
         // Finish uploading and rename to unique filename
