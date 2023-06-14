@@ -41,14 +41,47 @@ main
                         img(src='/assets/img/logos/logo.png' width='141' alt='logo')
                 .col-9
                     ul#topNewNav
+                        li
+                            a(href="/home")
+                                img(src='/assets/img/icons/uk.png')
+                            | |
+                            a(href="?lang=cn")
+                                img(src='/assets/img/icons/china.png')
+                            | |
+                            a(href="?lang=sp")
+                                img(src='/assets/img/icons/spain.png')
                         li 
-                            a(href='/home/news/#news-section') News
+                            a(href='/home/news/#news-section') 
+                                if(lang == 'cn')
+                                    | 新闻
+                                else if (lang == 'sp')
+                                    | Noticias
+                                else 
+                                    | News
                         li 
-                            a(href='/home/courses/#course-section') Course
+                            a(href='/home/courses/#course-section') 
+                                if(lang == 'cn')
+                                    | 课程
+                                else if (lang == 'sp')
+                                    | Cursos
+                                else 
+                                    | Course
                         li 
-                            a(href='/home/communities/#community-section') Community
+                            a(href='/home/communities/#community-section') 
+                                if(lang == 'cn')
+                                    | 社区
+                                else if (lang == 'sp')
+                                    | Comunidad
+                                else 
+                                    | Community
                         li 
-                            a(href='#charity-section') Charity
+                            a(href='#charity-section') 
+                                if(lang == 'cn')
+                                    | 慈善
+                                else if (lang == 'sp')
+                                    | Caridad
+                                else 
+                                    | Charity
     .py-7.py-sm-8.py-lg-10.py-xxl-9.py-xxl-11(style='background-color:#10203F;')
 
     // ============================================
@@ -111,8 +144,8 @@ main
                                 .card-body.border-bottom.border-primary.p-2.px-md-4.py-md-3.py-xl-4.p-sm-3
                                     .d-md-flex.flex-between-center
                                         p.mb-0.text-primary.fs-2
-                                            strong 250,998 
-                                            | people are learning with us
+                                            strong Explore 
+                                            | what Govan has to offer
                                         a.text-decoration-none.text-light.fw-bold(href='#!' role='button')
                                             | LEARN MORE
                                             svg.bi.bi-arrow-right.text-primary.ms-2(xmlns='http://www.w3.org/2000/svg' width='32' height='32' fill='currentColor' viewbox='0 0 16 16')
@@ -124,7 +157,13 @@ main
         .container
             .row
                 .col-12
-                    h1.header-title.display-4.header.text-center.mb-5 ALL COMMUNITIES
+                    h1.header-title.display-4.header.text-center.mb-5
+                        if(lang == 'cn')
+                            | 社区团体
+                        else if (lang == 'sp')
+                            | GRUPO COMUNIDAD
+                        else 
+                            | ALL COMMUNITIES
                     .swiper-custom-container
                         .swiper-container.theme-slider(data-swiper='{"spaceBetween":1,"slideToClickedSlide":true,"slidesPerView":1,"pagination":{"el":".swiper-pagination","clickable":true,"bulletActiveClass":"bullet-active"},"breakpoints":{"320":{"slidesPerView":1,"spaceBetween":20},"480":{"slidesPerView":2,"spaceBetween":30},"640":{"slidesPerView":4,"spaceBetween":40}}}')
                             .swiper-wrapper
