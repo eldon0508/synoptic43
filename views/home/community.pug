@@ -113,26 +113,56 @@ main
                                 img.d-block.w-100(src='/assets/img/gallery/header-slider-1.png' height='447' alt='...')
                                 .carousel-caption.d-none.d-sm-block
                                     h1.display-4.text-light.text-start.fw-light.fs-2.fs-md-3.fs-lg-4.fs-xl-5
-                                        | We 
-                                        strong empower 
-                                        | you 
-                                        br
-                                        | to learn what you love.
+                                        if(lang == 'cn')
+                                            strong 探索 
+                                            | 戈万迷人的地标
+                                        else if (lang == 'sp')
+                                            strong Explora 
+                                            | las  
+                                            br 
+                                            | fascinantes vistas de Govan
+                                        else 
+                                            strong Explore  
+                                            | Govan's  
+                                            br
+                                            | fascinating landmarks.
                             .carousel-item
                                 img.d-block.w-100(src='/assets/img/gallery/header-slider-2.png' height='447' alt='...')
                                 .carousel-caption.d-none.d-sm-block
                                     h1.display-4.text-light.text-start.fw-light
-                                        strong An extensive Archieve for you to 
-                                        br.d-none.d-xxl-block
-                                        | explore the many areas of knowledge.
+                                        if(lang == 'cn')
+                                            strong 被照亮 
+                                            | 的戈万丰富历史
+                                        else if (lang == 'sp')
+                                            | Estar 
+                                            strong iluminado 
+                                            br
+                                            |en La rica historia de Govan
+                                        else 
+                                            | Be 
+                                            strong illuminated 
+                                            | in 
+                                            br
+                                            | Govan's rich history
                             .carousel-item
                                 img.d-block.w-100(src='/assets/img/gallery/header-slider-3.png' height='447' alt='...')
                                 .carousel-caption.d-none.d-sm-block
                                     h1.display-4.text-light.text-start.fw-light
-                                        | Learn how to
-                                        strong  express yourself 
-                                        br
-                                        | artistically via engaging courses.
+                                        if(lang == 'cn')
+                                            strong 体验
+                                            | 戈万
+                                            br
+                                            | 的多样化文化场景
+                                        else if (lang == 'sp')
+                                            strong Experimente 
+                                            | la 
+                                            br
+                                            | diversa escena cultural de Govan.
+                                        else 
+                                            strong Experience  
+                                            | the  
+                                            br
+                                            | diverse cultural scene of Govan.
                     .row.g-0
                         .col-3.position-relative
                             .carousel-indicators.justify-content-start.custom-indicators
@@ -144,12 +174,12 @@ main
                                 .card-body.border-bottom.border-primary.p-2.px-md-4.py-md-3.py-xl-4.p-sm-3
                                     .d-md-flex.flex-between-center
                                         p.mb-0.text-primary.fs-2
-                                            strong Explore 
+                                            strong See 
                                             | what Govan has to offer
-                                        a.text-decoration-none.text-light.fw-bold(href='#!' role='button')
-                                            | LEARN MORE
-                                            svg.bi.bi-arrow-right.text-primary.ms-2(xmlns='http://www.w3.org/2000/svg' width='32' height='32' fill='currentColor' viewbox='0 0 16 16')
-                                                path(fill-rule='evenodd' d='M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z')
+                                        //- a.text-decoration-none.text-light.fw-bold(href='#!' role='button')
+                                        //-     | LEARN MORE
+                                        //-     svg.bi.bi-arrow-right.text-primary.ms-2(xmlns='http://www.w3.org/2000/svg' width='32' height='32' fill='currentColor' viewbox='0 0 16 16')
+                                        //-         path(fill-rule='evenodd' d='M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z')
     // ============================================
 
     // ALL COMMUNITIES section begin ============================
@@ -186,25 +216,25 @@ main
     // COMMUNITIES section close ============================
 
     // <section> begin ============================
-    section.bg-soft-primary
-        .container
-            .row.flex-center
-                .col-lg-5.col-xl-4
-                    img.w-100(src='/assets/img/illustrations/cta.png' alt='...')
-                .col-lg-5.col-xl-4
-                    h1.fw-normal.text-secondary.mb-4
-                        | Get Regular 
-                        br
-                        | Updates from
-                    img(src='/assets/img/logos/logo-footer.png' height='75' alt='...')
-                    h5.text-secondary.fw-normal.my-3 SUBSCRIBE TO NEWSLETTER 
-                    form.row.gx-2.gy-2.align-items-center
-                        .col
-                            .input-group-icon
-                                label.visually-hidden(for='inputEmailCta') Address
-                                input#inputEmailCta.form-control.input-box.form-eduprix-control.text-light(type='email' placeholder='Email')
-                        .d-grid
-                            button.btn.btn-secondary(type='submit') Subscribe
+    //- section.bg-soft-primary
+    //-     .container
+    //-         .row.flex-center
+    //-             .col-lg-5.col-xl-4
+    //-                 img.w-100(src='/assets/img/illustrations/cta.png' alt='...')
+    //-             .col-lg-5.col-xl-4
+    //-                 h1.fw-normal.text-secondary.mb-4
+    //-                     | Get Regular 
+    //-                     br
+    //-                     | Updates from
+    //-                 img(src='/assets/img/logos/logo-footer.png' height='75' alt='...')
+    //-                 h5.text-secondary.fw-normal.my-3 SUBSCRIBE TO NEWSLETTER 
+    //-                 form.row.gx-2.gy-2.align-items-center
+    //-                     .col
+    //-                         .input-group-icon
+    //-                             label.visually-hidden(for='inputEmailCta') Address
+    //-                             input#inputEmailCta.form-control.input-box.form-eduprix-control.text-light(type='email' placeholder='Email')
+    //-                     .d-grid
+    //-                         button.btn.btn-secondary(type='submit') Subscribe
     // <section> close ============================
 
     // <section> begin ============================
