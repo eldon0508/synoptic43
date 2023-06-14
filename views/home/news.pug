@@ -41,14 +41,47 @@ main
                         img(src='/assets/img/logos/logo.png' width='141' alt='logo')
                 .col-9
                     ul#topNewNav
+                        li
+                            a(href="/home")
+                                img(src='/assets/img/icons/uk.png')
+                            | |
+                            a(href="?lang=cn")
+                                img(src='/assets/img/icons/china.png')
+                            | |
+                            a(href="?lang=sp")
+                                img(src='/assets/img/icons/spain.png')
                         li 
-                            a(href='/home/news/#news-section') News
+                            a(href='/home/news/#news-section') 
+                                if(lang == 'cn')
+                                    | 新闻
+                                else if (lang == 'sp')
+                                    | Noticias
+                                else 
+                                    | News
                         li 
-                            a(href='/home/courses/#course-section') Course
+                            a(href='/home/courses/#course-section') 
+                                if(lang == 'cn')
+                                    | 课程
+                                else if (lang == 'sp')
+                                    | Cursos
+                                else 
+                                    | Course
                         li 
-                            a(href='/home/communities/#community-section') Community
+                            a(href='/home/communities/#community-section') 
+                                if(lang == 'cn')
+                                    | 社区
+                                else if (lang == 'sp')
+                                    | Comunidad
+                                else 
+                                    | Community
                         li 
-                            a(href='#charity-section') Charity
+                            a(href='#charity-section') 
+                                if(lang == 'cn')
+                                    | 慈善
+                                else if (lang == 'sp')
+                                    | Caridad
+                                else 
+                                    | Charity
     .py-7.py-sm-8.py-lg-10.py-xxl-9.py-xxl-11(style='background-color:#10203F;')
 
     // ============================================
@@ -125,7 +158,13 @@ main
             .row
                 .col-12
                     .mb-6
-                        h1.header-title.display-4.header.text-center ALL NEWS
+                        h1.header-title.display-4.header.text-center 
+                            if(lang == 'cn')
+                                | 近期新闻
+                            else if (lang == 'sp')
+                                | NOTICIAS RECIENTES
+                            else 
+                                | ALL NEWS
                     .row
                         each news in results
                             .col-sm-6.col-md-4.col-lg-3.mb-4
