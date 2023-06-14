@@ -174,12 +174,15 @@ main
                                 .card-body.border-bottom.border-primary.p-2.px-md-4.py-md-3.py-xl-4.p-sm-3
                                     .d-md-flex.flex-between-center
                                         p.mb-0.text-primary.fs-2
-                                            strong See 
-                                            | what Govan has to offer
-                                        //- a.text-decoration-none.text-light.fw-bold(href='#!' role='button')
-                                        //-     | LEARN MORE
-                                        //-     svg.bi.bi-arrow-right.text-primary.ms-2(xmlns='http://www.w3.org/2000/svg' width='32' height='32' fill='currentColor' viewbox='0 0 16 16')
-                                        //-         path(fill-rule='evenodd' d='M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z')
+                                            if(lang == 'cn')
+                                                strong 看看 
+                                                | 戈万能提供什么
+                                            else if (lang == 'sp')
+                                                strong Vea  
+                                                | lo que Govan puede ofrecerle 
+                                            else 
+                                                strong See 
+                                                | what Govan has to offer
     // ============================================
 
     // ALL COMMUNITIES section begin ============================
@@ -215,83 +218,167 @@ main
                                 path(fill-rule='evenodd' d='M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z')
     // COMMUNITIES section close ============================
 
-    // <section> begin ============================
-    //- section.bg-soft-primary
-    //-     .container
-    //-         .row.flex-center
-    //-             .col-lg-5.col-xl-4
-    //-                 img.w-100(src='/assets/img/illustrations/cta.png' alt='...')
-    //-             .col-lg-5.col-xl-4
-    //-                 h1.fw-normal.text-secondary.mb-4
-    //-                     | Get Regular 
-    //-                     br
-    //-                     | Updates from
-    //-                 img(src='/assets/img/logos/logo-footer.png' height='75' alt='...')
-    //-                 h5.text-secondary.fw-normal.my-3 SUBSCRIBE TO NEWSLETTER 
-    //-                 form.row.gx-2.gy-2.align-items-center
-    //-                     .col
-    //-                         .input-group-icon
-    //-                             label.visually-hidden(for='inputEmailCta') Address
-    //-                             input#inputEmailCta.form-control.input-box.form-eduprix-control.text-light(type='email' placeholder='Email')
-    //-                     .d-grid
-    //-                         button.btn.btn-secondary(type='submit') Subscribe
-    // <section> close ============================
-
-    // <section> begin ============================
+    // FOOTER section begin ============================
     section.bg-secondary
         .container
             .row
                 .col-12.col-sm-12.col-lg-6.mb-4.order-0.order-sm-0
                     a.text-decoration-none(href='#')
-                        img(src='/assets/img/logos/logo-footer.png' height='75' alt='...')
+                        img(src='/assets/img/logos/logo-footer.png' height='200' alt='...')
                     p.text-light.my-4
-                        | We&apos;re a worldwide community for online learning and teaching
-                        br.d-none.d-sm-block
-                        | where anybody can acquire new skills and accomplish their
-                        br.d-none.d-sm-block
-                        | objectives by connecting with others. We are dedicated to 
-                        br.d-none.d-sm-block
-                        | making a positive difference in the future of education.
+                        if(lang == 'cn')
+                            | 我们致力于增强戈万居民的能力，提高他们的数字素养，
+                            br.d-none.d-sm-block
+                            | 培养他们对数字技术的兴趣。通过提高他们的数字素养和
+                            br.d-none.d-sm-block
+                            | 促进丰富社区生活。我们的目标是提供一个一站式的平台，
+                            br.d-none.d-sm-block
+                            | 提供有价值的资源、引人入胜的新闻。我们的目标是提供
+                            br.d-none.d-sm-block
+                            | 一个一站式平台，提供有价值的资源、引人入胜的新闻报道、
+                            br.d-none.d-sm-block
+                            | 关于当地慈善机构的信息以及旨在帮助你提高数字世界技能
+                            br.d-none.d-sm-block
+                            |的一系列课程。
+                        else if (lang == 'sp')
+                            | Estamos dedicados a empoderar a los residentes de Govan
+                            br.d-none.d-sm-block
+                            | mejorar su alfabetización digital y fomentar enriquecimiento 
+                            br.d-none.d-sm-block
+                            | comunitario. Nuestro objetivo es proporcionar una ventanilla 
+                            br.d-none.d-sm-block
+                            | única plataforma que ofrece valiosos recursos, noticias atractivas,
+                            br.d-none.d-sm-block
+                            | información sobre organizaciones benéficas locales y una amplia 
+                            br.d-none.d-sm-block
+                            | gama de Cursos diseñados para ayudarte a mejorar en el mundo digital.
+                        else 
+                            | We are dedicated to empowering the residents of Govan
+                            br.d-none.d-sm-block
+                            | by enhancing their digital literacy and fostering 
+                            br.d-none.d-sm-block
+                            | community enrichment. Our goal is to provide a one-stop
+                            br.d-none.d-sm-block
+                            | platform that offers valuable resources, engaging news,
+                            br.d-none.d-sm-block
+                            | information about local charities, and a wide range of
+                            br.d-none.d-sm-block
+                            | courses designed to help you upskill in the digital world. 
                 .col-6.col-sm-4.col-lg-2.mb-3.order-2.order-sm-1
-                    h3.lh-lg.fw-bold.mb-4.text-light.font-sans-serif Eduprix
+                    h3.lh-lg.fw-bold.mb-4.text-light.font-sans-serif Govan
                     ul.list-unstyled.mb-md-4.mb-lg-0
-                        li.lh-lg
-                            a.text-primary(href='#!') About
-                        li.lh-lg
-                            a.text-primary(href='#!') Affiliate
-                        li.lh-lg
-                            a.text-primary(href='#!') Open Eduprix
-                        li.lh-lg
-                            a.text-primary(href='#!') Career
-                        li.lh-lg
-                            a.text-primary(href='#!') News
+                        if(lang == 'cn')
+                            li.lh-lg
+                                a.text-primary(href='#!') 关于
+                            li.lh-lg
+                                a.text-primary(href='#!') 合作
+                            li.lh-lg
+                                a.text-primary(href='#!') 事业
+                            li.lh-lg
+                                a.text-primary(href='#!') 新闻
+                        else if (lang == 'sp')
+                            li.lh-lg
+                            a.text-primary(href='#!') Acerca de
+                            li.lh-lg
+                                a.text-primary(href='#!') Afiliado
+                            li.lh-lg
+                                a.text-primary(href='#!') Carrera
+                            li.lh-lg
+                            a.text-primary(href='#!') Noticias
+                        else 
+                            li.lh-lg
+                                a.text-primary(href='#!') About
+                            li.lh-lg
+                                a.text-primary(href='#!') Affiliate
+                            li.lh-lg
+                                a.text-primary(href='#!') Career
+                            li.lh-lg
+                                a.text-primary(href='#!') News
                 .col-6.col-sm-4.col-lg-2.mb-3.order-3.order-sm-2
-                    h3.lh-lg.fw-bold.text-light.mb-4.font-sans-serif Connect
+                    h3.lh-lg.fw-bold.text-light.mb-4.font-sans-serif 
+                        if(lang == 'cn')
+                            | 联络
+                        else if (lang == 'sp')
+                            | Conectar
+                        else
+                            | Connect
                     ul.list-unstyled.mb-md-4.mb-lg-0
-                        li.lh-lg
-                            a.text-primary(href='#!') Blog
-                        li.lh-lg
-                            a.text-primary(href='#!') Contact Us
-                        li.lh-lg
-                            a.text-primary(href='#!') Help Centre
-                        li.lh-lg
-                            a.text-primary(href='#!') Media Kit
-                        li.lh-lg
-                            a.text-primary(href='#!') Donation
+                        if(lang == 'cn')
+                            li.lh-lg
+                                a.text-primary(href='#!') 博客
+                            li.lh-lg
+                                a.text-primary(href='#!') 联络我们
+                            li.lh-lg
+                                a.text-primary(href='#!') 帮助中心
+                            li.lh-lg
+                                a.text-primary(href='#!') 媒体工具包
+                            li.lh-lg
+                                a.text-primary(href='#!') 捐助
+                        else if (lang == 'sp')
+                            li.lh-lg
+                            a.text-primary(href='#!') Contáctenos
+                            li.lh-lg
+                                a.text-primary(href='#!') Contáctenos
+                            li.lh-lg
+                                a.text-primary(href='#!') Centro de ayuda
+                            li.lh-lg
+                                a.text-primary(href='#!') Donación
+                            li.lh-lg
+                            a.text-primary(href='#!') Donación
+                        else
+                            li.lh-lg
+                                a.text-primary(href='#!') Blog
+                            li.lh-lg
+                                a.text-primary(href='#!') Contact Us
+                            li.lh-lg
+                                a.text-primary(href='#!') Help Centre
+                            li.lh-lg
+                                a.text-primary(href='#!') Media Kit
+                            li.lh-lg
+                                a.text-primary(href='#!') Donation
                 .col-6.col-sm-4.col-lg-2.mb-3.order-3.order-sm-2
-                    h3.lh-lg.fw-bold.text-light.mb-4.font-sans-serif  Legal
+                    h3.lh-lg.fw-bold.text-light.mb-4.font-sans-serif
+                        if(lang == 'cn')
+                            | 法条
+                        else if (lang == 'sp')
+                            | Legal
+                        else
+                            | Legal
                     ul.list-unstyled.mb-md-4.mb-lg-0
-                        li.lh-lg
-                            a.text-primary(href='#!') Terms of Services
-                        li.lh-lg
-                            a.text-primary(href='#!') Privacy Policy
-                        li.lh-lg
-                            a.text-primary(href='#!') Accessibility
-                        li.lh-lg
-                            a.text-primary(href='#!') Trademark
-                        li.lh-lg
-                            a.text-primary(href='#!') Sitemap
-    // <section> close ============================
+                        if(lang == 'cn')
+                            li.lh-lg
+                                a.text-primary(href='#!') 服务条款
+                            li.lh-lg
+                                a.text-primary(href='#!') 隐私政策
+                            li.lh-lg
+                                a.text-primary(href='#!') 辅助功能
+                            li.lh-lg
+                                a.text-primary(href='#!') 商标
+                            li.lh-lg
+                                a.text-primary(href='#!') 网站地图
+                        else if (lang == 'sp')
+                            li.lh-lg
+                            a.text-primary(href='#!') Términos de servicios
+                            li.lh-lg
+                                a.text-primary(href='#!') Política de privacidad
+                            li.lh-lg
+                                a.text-primary(href='#!') Accesibilidad
+                            li.lh-lg
+                                a.text-primary(href='#!') Marca comercial
+                            li.lh-lg
+                            a.text-primary(href='#!') Mapa del sitio
+                        else
+                            li.lh-lg
+                                a.text-primary(href='#!') Terms of Services
+                            li.lh-lg
+                                a.text-primary(href='#!') Privacy Policy
+                            li.lh-lg
+                                a.text-primary(href='#!') Accessibility
+                            li.lh-lg
+                                a.text-primary(href='#!') Trademark
+                            li.lh-lg
+                                a.text-primary(href='#!') Sitemap
+    // FOOTER section close ============================
 
     // <section> begin ============================
     section.py-0.bg-dark
