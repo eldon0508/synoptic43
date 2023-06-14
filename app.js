@@ -21,6 +21,7 @@ var indexRouter = require('./routes/index'),
 
 const app = express();
 
+
 /* Protecting routes declaration */
 function isAuth(req, res, next) {
   if (req.isAuthenticated()) { return next(); }
